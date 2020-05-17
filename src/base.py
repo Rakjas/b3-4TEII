@@ -15,7 +15,7 @@ import sys
 import time
 import numpy as np
 import matplotlib.pyplot as plt
-from mult import mult
+
 
 
 # Función auxiliar: muestra la figura matplotlib pendiente y espera una pulsación de tecla:
@@ -46,35 +46,62 @@ def plot_values(values_in, values_out, line_else_bars=True, width=0.5):
 # Código main:
 def main():   
     # Control de argumentos de línea de comandos:
-    if len(sys.argv) != 2:
-        print("Uso: {} scale".format(sys.argv[0]))
+    if len(sys.argv) != 4:
+        print("Uso: {} ficheroEntrada, ficheroSalida, pdfLogFile".format(sys.argv[0]))
         sys.exit(0)
-    # Escala N:
+        
+    #reading fEntrada
     try:
-        N = float(sys.argv[1])
-        if not (-5.0 <= N <= 5.0):
-            raise ValueError()
+        f = open(sys.argv[1])
+        list = f.readlines()
     except:
-        print("N must be a float value between -5.0 and +5.0")
+        print("No se encuentra el archivo de Entrada")
+        sys.exit(-1)
+        
+    slist = sorted(list)
+    
+    #parsing fEntrada
+    try:
+        for number in slist:
+            N = int(number)
+            if not (0 <= N <= 99999):
+                raise ValueError()
+    except:
+        print("All values must be a int value between 0 and 99999")
+        sys.exit(-1)
+        
+        
+        
+    #Creamos las soluciones
+    
+    #Metodo 1
+    t0_sol1 = time.time_ns()
+    sol1 = set(slist)
+    texec_sol1 = (time.time_ns()-t0_sol1)/1.0e9
+    
+    print("La opcion 1: set ha tardado {} segundos en ejecutarse.".format(texec_sol1))
+    
+    #Guardamos la solucion
+    
+    try:
+        name = sys.argv[2]
+        file = open(name, "w")
+        
+    except:
+        print("Can't create file")
         sys.exit(-1)
 
-    # Generamos una serie aleatoria creciente, a partir de la suma acumulativa números aleatorios 
-    # entre 0 y 1:
-    SIZE = 50  # Tamaño del array.
-    inp_arr = np.cumsum(np.random.rand(SIZE))
-    out_arr = np.zeros_like(inp_arr)
-
-    # Llamada a la función externa a través de su wrapper, con la correspondiente toma de tiempo:
-    t0 = time.time_ns()
-    out_arr = mult(inp_arr, N)
-    t_exec = (time.time_ns()-t0)/1.0e9
-    print("La función mult ha tardado {} segundos en ejecutarse.".format(t_exec))
-
-    # Mostramos gráficas (de líneas y de barras) y terminamos:        
-    plot_values(inp_arr, out_arr)
+    for num in sol1:
+        
+        file.write(str(num))
+       
+    
+    # Mostramos gráficas (de líneas y de barras) y continuamos:        
+    plot_values(slist, sol1)
     show_plot_and_wait_for_key()
-    plot_values(inp_arr, out_arr, line_else_bars=False)
+    plot_values(slist, sol1, line_else_bars=False)
     show_plot_and_wait_for_key()
+
  
 if __name__ == '__main__':
     main()
