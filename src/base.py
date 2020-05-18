@@ -28,17 +28,17 @@ def show_plot_and_wait_for_key():
 
 
 # Función auxiliar que muestra en matplotlib los arrays de entrada y de salida:
-def plot_values(values_in, values_out, line_else_bars=True, width=0.5):
+def plot_values(values_in1, values_in2, line_else_bars=True, width=0.5):
     if line_else_bars == True:
-        plt.plot(values_in, color = 'r', label="Input values")
-        plt.plot(values_out, color = 'g', label="Output values")        
+        plt.plot(values_in1, color = 'r', label="Method 1")
+        plt.plot(values_in2, color = 'g', label="Method 2") 
     else:
-        plt.bar(np.arange(len(values_in)) - width, values_in, width=width, color='r', 
-                label="Input values")
-        plt.bar(np.arange(len(values_out)), values_out, width=width, color='g', 
-                label="Output values")
+        plt.bar(np.arange(len(values_in1)) - width, values_in1, width=width, color='r', 
+                label="Method 1")
+        plt.bar(np.arange(len(values_in2)), values_in2, width=width, color='g', 
+                label="Method 2")
 
-    plt.title('Matplotlib example (using {})'.format(["bars", "lines"][line_else_bars]))
+    plt.title('Comparative between methods time consupmtion'.format(["bars", "lines"][line_else_bars]))
     plt.legend()
     plt.xlabel('Array indices')
     plt.ylabel('Values')
@@ -71,27 +71,32 @@ def main():
         print("All values must be a int value between 0 and 99999")
         sys.exit(-1)
         
-        
-   
+    timeOption1 = []
+    timeOption2 = []
+    timeOption3 = []
+    
     #Creamos las soluciones
+    for i in range(0,200000,2000):
+        #Método 1
+        t0_sol1 = time.time_ns()
+        sol1 = sorted(set(slist[0:i]))
+        texec_sol1 = (time.time_ns()-t0_sol1)/1.0e9
+        
+        print("La opcion 1: set ha tardado {} segundos en ejecutarse.".format(texec_sol1))
+        
+        #Método 2
+        t0_sol2 = time.time_ns()
+        sol2 = list(set(slist[0:i]))
+        texec_sol2 = (time.time_ns()-t0_sol2)/1.0e9
+        
+        
+        print("La opcion 2: set ha tardado {} segundos en ejecutarse.".format(texec_sol2))
     
-    #Método 1
-    t0_sol1 = time.time_ns()
-    sol1 = sorted(set(slist))
-    texec_sol1 = (time.time_ns()-t0_sol1)/1.0e9
+        #Guardamos los datos para esta iteracion
+        timeOption1.append(texec_sol1)
+        timeOption2.append(texec_sol2)
     
-    print("La opcion 1: set ha tardado {} segundos en ejecutarse.".format(texec_sol1))
-    
-    #Método 2
-    t0_sol2 = time.time_ns()
-    sol2 = list(set(slist))
-    texec_sol2 = (time.time_ns()-t0_sol2)/1.0e9
-    
-    
-    print("La opcion 2: set ha tardado {} segundos en ejecutarse.".format(texec_sol2))
-    
-    #Guardamos la solucion
-    
+    #Creamos el archivo solucion
     try:
         name = sys.argv[2]
         file = open(name, "w")
@@ -105,12 +110,13 @@ def main():
         file.write(str(num))
        
     
-    # Mostramos gráficas (de líneas y de barras) y continuamos:        
+    
+    # Imprimimos el grafico
     print("Comenzamos el plot de las comparativas")
     
-    plot_values(slist, sol1)
+    plot_values(timeOption1, timeOption2)
     show_plot_and_wait_for_key()
-    plot_values(slist, sol1, line_else_bars=False)
+    plot_values(timeOption1, timeOption2, line_else_bars=False)
     show_plot_and_wait_for_key()
 
  
