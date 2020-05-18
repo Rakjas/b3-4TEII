@@ -16,20 +16,21 @@ import time
 import numpy as np
 import matplotlib.pyplot as plt
 from wrapper import wrapper 
-
+from matplotlib.backends.backend_pdf import PdfPages
 
 
 # Función auxiliar: muestra la figura matplotlib pendiente y espera una pulsación de tecla:
 #@profile
 def show_plot_and_wait_for_key():
-    plt.draw()
-    plt.pause(0.01)
+    
+    plt.show()
     input("<Hit Enter To Close>")
     plt.close()
 
-
+    
 # Función auxiliar que muestra en matplotlib los arrays de entrada y de salida:
-def plot_values(values_in1, values_in2, values_in3, line_else_bars=True, width=0.5):
+def plot_values(values_in1, values_in2, values_in3, name, line_else_bars=True, width=0.5):
+    f = plt.figure()
     if line_else_bars == True:
         plt.plot(values_in1, color = 'r', label="Method 1")
         plt.plot(values_in2, color = 'g', label="Method 2") 
@@ -46,6 +47,7 @@ def plot_values(values_in1, values_in2, values_in3, line_else_bars=True, width=0
     plt.legend()
     plt.xlabel('CasosConsiderados * 2000')
     plt.ylabel('Segundos')
+    f.savefig(str(name + ".pdf"),bbox_inches='tight')
 
 
 # Código main:
@@ -126,15 +128,16 @@ def main():
         
         file.write(str(num))
        
+        
+    # Guardamos los graficos en el pdf de salida marcado
     
-    
-    # Imprimimos el grafico
     print("Comenzamos el plot de las comparativas")
     
-    plot_values(timeOption1, timeOption2, timeOption3)
+    plot_values(timeOption1, timeOption2, timeOption3, sys.argv[2])
+    
     show_plot_and_wait_for_key()
-    plot_values(timeOption1, timeOption2, timeOption3,line_else_bars=False)
-    show_plot_and_wait_for_key()
+    
+
 
  
 if __name__ == '__main__':
