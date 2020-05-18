@@ -15,16 +15,17 @@ Python y dará un error al no encontrar definida una función llamada
 PyInit_libmult.
 '''
 import ctypes, os
+import numpy as np
 
 # Wrapper python para llamar a la función implementada en C.
-def mult(vin, escalar):
+def wrapper(vin):
     # Objeto correspondiente a la función dentro de la biblioteca.
     funcmult = LIBMULT.mult
 
     # Prototipo de la función: dos arrays a floats, la longitud de los arrays y
     # el escalar de multiplicación. Observa que ctypes no define punteros a datos que
     # no sean c_char, c_wchar y c_void, por lo que hay que crearlos con POINTER. 
-    funcmult.argtypes = [ctypes.POINTER(ctypes.c_float), ctypes.POINTER(ctypes.c_float), ctypes.c_int, ctypes.c_float]
+    funcmult.argtypes = [ctypes.POINTER(ctypes.c_float), ctypes.POINTER(ctypes.c_float), ctypes.c_int]
 
     # Valor devuelto por la función (se puede eliminar, pues es el
     # comportamiento por defecto).
@@ -42,14 +43,14 @@ def mult(vin, escalar):
     salida=(ctypes.c_float * len(vin))()
 
     # Llamada a la función de la biblioteca compartida.
-    funcmult((ctypes.c_float * len(vin))(*vin), salida, len(vin), escalar)
+    funcmult((ctypes.c_float * len(vin))(*vin), salida, len(vin))
 
     # Vamos a devolver un vector. Para eso, hacemos una copia del vector de
     # entrada. Podríamos devolver directamente «salida», pero sería un objeto de
     # ctypes tal y como lo hemos definido, con lo que una simple orden
     # «print(salida)» no nos mostraría su contenido sino su tipo. Queda más
     # "elegante" devolver algo como la entrada.
-    vout=vin.copy()
+    vout=np.resize(vin.copy(), len(salida))
 
     # Copiamos a dicho vector de salida el resultado de la función.
     for i in range(len(vout)):
@@ -58,7 +59,7 @@ def mult(vin, escalar):
     # Devolvemos el vector de salida.
     return vout
 
-if __name__ == "mult":
+if __name__ == "wrapper":
     # Cargamos la biblioteca compartida en ctypes.
-    LIBMULT = ctypes.CDLL (os.path.abspath(os.path.join(os.path.dirname(__file__),  "../libmult/libmult.so.1")))
+    LIBMULT = ctypes.CDLL (os.path.abspath(os.path.join(os.path.dirname(__file__),  "./libwrapper.so.1")))
 

@@ -15,6 +15,7 @@ import sys
 import time
 import numpy as np
 import matplotlib.pyplot as plt
+from wrapper import wrapper 
 
 
 
@@ -38,10 +39,10 @@ def plot_values(values_in1, values_in2, line_else_bars=True, width=0.5):
         plt.bar(np.arange(len(values_in2)), values_in2, width=width, color='g', 
                 label="Method 2")
 
-    plt.title('Comparative between methods time consupmtion'.format(["bars", "lines"][line_else_bars]))
+    plt.title('Comparative of time spend between the methods'.format(["bars", "lines"][line_else_bars]))
     plt.legend()
-    plt.xlabel('Array indices')
-    plt.ylabel('Values')
+    plt.xlabel('CasosConsiderados * 2000')
+    plt.ylabel('Segundos')
 
 
 # Código main:
