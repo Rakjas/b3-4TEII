@@ -3,9 +3,9 @@
 #include "wrapper.h"
 
 
-int wrapper( float *vin, float *vout, int size)
+int wrapper( float *vin, float *vout,  int size)
 {
-    for(int i = 0; i<size-1; i++)
+   /* for(int i = 0; i<size-1; i++)
     {
         for(int j = i+1; j< size; j++)
         {
@@ -22,7 +22,7 @@ int wrapper( float *vin, float *vout, int size)
                 j--;
             }
         }
-    }
+    }*/
     
     for(int i=0;i<size;i++)
     {

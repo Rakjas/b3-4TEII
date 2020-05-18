@@ -77,7 +77,7 @@ def main():
     timeOption3 = []
     
     #Creamos las soluciones
-    for i in range(0,200000,2000):
+    for i in range(2000,200000,2000):
         #Método 1
         t0_sol1 = time.time_ns()
         sol1 = sorted(set(slist[0:i]))
@@ -91,11 +91,24 @@ def main():
         texec_sol2 = (time.time_ns()-t0_sol2)/1.0e9
         
         
-        print("La opcion 2: set ha tardado {} segundos en ejecutarse.".format(texec_sol2))
-    
+        print("La opcion 2: list ha tardado {} segundos en ejecutarse.".format(texec_sol2))
+        
+        
+        #Método 3
+        listTarget = slist[0:i]
+        results = [int(i) for i in listTarget]
+        t0_sol3 = time.time_ns()        
+        sol3 = np.zeros_like(listTarget)
+        sol3 = wrapper(results,i)
+        texec_sol3 = (time.time_ns()-t0_sol3)/1.0e9
+        
+        
+        print("La opcion 3: prarrayopia ha tardado {} segundos en ejecutarse.".format(texec_sol3))
+        
         #Guardamos los datos para esta iteracion
         timeOption1.append(texec_sol1)
         timeOption2.append(texec_sol2)
+        timeOption3.append(texec_sol3)
     
     #Creamos el archivo solucion
     try:

@@ -18,18 +18,18 @@ import ctypes, os
 import numpy as np
 
 # Wrapper python para llamar a la función implementada en C.
-def wrapper(vin):
+def wrapper(vin, size):
     # Objeto correspondiente a la función dentro de la biblioteca.
-    funcmult = LIBMULT.mult
+    funcwrapper = LIBWRAPPER.wrapper
 
     # Prototipo de la función: dos arrays a floats, la longitud de los arrays y
     # el escalar de multiplicación. Observa que ctypes no define punteros a datos que
     # no sean c_char, c_wchar y c_void, por lo que hay que crearlos con POINTER. 
-    funcmult.argtypes = [ctypes.POINTER(ctypes.c_float), ctypes.POINTER(ctypes.c_float), ctypes.c_int]
+    funcwrapper.argtypes = [ctypes.POINTER(ctypes.c_float), ctypes.POINTER(ctypes.c_float), ctypes.c_int]
 
     # Valor devuelto por la función (se puede eliminar, pues es el
     # comportamiento por defecto).
-    funcmult.restype = ctypes.c_int
+    funcwrapper.restype = ctypes.c_int
 
     # Puesto que ctypes espera que los dos primeros parámetros sean instancias
     # de punteros a c_float (es decir, instancias LP_c_float), según el
@@ -40,10 +40,10 @@ def wrapper(vin):
     # con el primer parámetro que se le pasa a la función, si bien, en este
     # caso, los valores deben ser los del vector de entrada.
 
-    salida=(ctypes.c_float * len(vin))()
-
+    salida=(ctypes.c_float * size)()
+    entrada =(ctypes.c_float * size)(*vin)
     # Llamada a la función de la biblioteca compartida.
-    funcmult((ctypes.c_float * len(vin))(*vin), salida, len(vin))
+    funcwrapper(entrada, salida, size)
 
     # Vamos a devolver un vector. Para eso, hacemos una copia del vector de
     # entrada. Podríamos devolver directamente «salida», pero sería un objeto de
@@ -61,5 +61,5 @@ def wrapper(vin):
 
 if __name__ == "wrapper":
     # Cargamos la biblioteca compartida en ctypes.
-    LIBMULT = ctypes.CDLL (os.path.abspath(os.path.join(os.path.dirname(__file__),  "./libwrapper.so.1")))
+    LIBWRAPPER = ctypes.CDLL (os.path.abspath(os.path.join(os.path.dirname(__file__),  "./libwrapper.so.1")))
 
