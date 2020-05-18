@@ -29,15 +29,18 @@ def show_plot_and_wait_for_key():
 
 
 # Función auxiliar que muestra en matplotlib los arrays de entrada y de salida:
-def plot_values(values_in1, values_in2, line_else_bars=True, width=0.5):
+def plot_values(values_in1, values_in2, values_in3, line_else_bars=True, width=0.5):
     if line_else_bars == True:
         plt.plot(values_in1, color = 'r', label="Method 1")
         plt.plot(values_in2, color = 'g', label="Method 2") 
+        plt.plot(values_in3, color = 'b', label="Method 3") 
     else:
         plt.bar(np.arange(len(values_in1)) - width, values_in1, width=width, color='r', 
                 label="Method 1")
         plt.bar(np.arange(len(values_in2)), values_in2, width=width, color='g', 
                 label="Method 2")
+        plt.bar(np.arange(len(values_in3)), values_in3, width=width, color='b', 
+                label="Method 3")
 
     plt.title('Comparative of time spend between the methods'.format(["bars", "lines"][line_else_bars]))
     plt.legend()
@@ -97,13 +100,13 @@ def main():
         #Método 3
         listTarget = slist[0:i]
         results = [int(i) for i in listTarget]
-        t0_sol3 = time.time_ns()        
         sol3 = np.zeros_like(listTarget)
+        t0_sol3 = time.time_ns()
         sol3 = wrapper(results,i)
         texec_sol3 = (time.time_ns()-t0_sol3)/1.0e9
         
         
-        print("La opcion 3: prarrayopia ha tardado {} segundos en ejecutarse.".format(texec_sol3))
+        print("La opcion 3: metodo propio ha tardado {} segundos en ejecutarse.".format(texec_sol3))
         
         #Guardamos los datos para esta iteracion
         timeOption1.append(texec_sol1)
@@ -128,9 +131,9 @@ def main():
     # Imprimimos el grafico
     print("Comenzamos el plot de las comparativas")
     
-    plot_values(timeOption1, timeOption2)
+    plot_values(timeOption1, timeOption2, timeOption3)
     show_plot_and_wait_for_key()
-    plot_values(timeOption1, timeOption2, line_else_bars=False)
+    plot_values(timeOption1, timeOption2, timeOption3,line_else_bars=False)
     show_plot_and_wait_for_key()
 
  
