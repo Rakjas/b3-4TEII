@@ -5,7 +5,29 @@
 
 int wrapper( float *vin, float *vout,  int size)
 {
-   /* for(int i = 0; i<size-1; i++)
+
+    int array[size];
+    
+    
+    for(int i = 0; i<size; i++)
+    {
+        array[(int)vin[i]] = 1;
+    }
+    
+    int newsize=0;
+    for(int i=0;i<size; i++)
+    {
+       if(array[i]==1){
+           vout[newsize] = i;
+           newsize++;
+        }
+    }
+    realloc(vout, newsize * sizeof(*vout));
+    
+    
+    //Metodo 1.0
+    /*    
+    for(int i = 0; i<size-1; i++)
     {
         for(int j = i+1; j< size; j++)
         {
@@ -22,12 +44,13 @@ int wrapper( float *vin, float *vout,  int size)
                 j--;
             }
         }
-    }*/
+    }
     
     for(int i=0;i<size;i++)
     {
         vout[i] = vin[i];
     }
     realloc(vout, size * sizeof(*vout));
+    */
     return 0;
 }

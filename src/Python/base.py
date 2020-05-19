@@ -47,8 +47,10 @@ def plot_values(values_in1, values_in2, values_in3, name, line_else_bars=True, w
     plt.legend()
     plt.xlabel('CasosConsiderados * 2000')
     plt.ylabel('Segundos')
-    f.savefig(str(name + ".pdf"),bbox_inches='tight')
-
+    try:
+        f.savefig(str(name + ".pdf"),bbox_inches='tight')
+    except:
+        print("Error al crear el archivo pdf con los gráficos")
 
 # Código main:
 def main():   
@@ -83,6 +85,8 @@ def main():
     
     #Creamos las soluciones
     for i in range(2000,200000,2000):
+        print("Iteracion {} :".format(i/2000))
+        
         #Método 1
         t0_sol1 = time.time_ns()
         sol1 = sorted(set(slist[0:i]))
@@ -121,7 +125,7 @@ def main():
         file = open(name, "w")
         
     except:
-        print("Can't create file")
+        print("Can't create outputList file")
         sys.exit(-1)
 
     for num in sol1:

@@ -1,0 +1,1170 @@
+
+%% bare_adv.tex
+%% V1.4b
+%% 2015/08/26
+%% by Michael Shell
+%% See: 
+%% http://www.michaelshell.org/
+%% for current contact information.
+%%
+%% This is a skeleton file demonstrating the advanced use of IEEEtran.cls
+%% (requires IEEEtran.cls version 1.8b or later) with an IEEE Computer
+%% Society journal paper.
+%%
+%% Support sites:
+%% http://www.michaelshell.org/tex/ieeetran/
+%% http://www.ctan.org/pkg/ieeetran
+%% and
+%% http://www.ieee.org/
+
+%%*************************************************************************
+%% Legal Notice:
+%% This code is offered as-is without any warranty either expressed or
+%% implied; without even the implied warranty of MERCHANTABILITY or
+%% FITNESS FOR A PARTICULAR PURPOSE! 
+%% User assumes all risk.
+%% In no event shall the IEEE or any contributor to this code be liable for
+%% any damages or losses, including, but not limited to, incidental,
+%% consequential, or any other damages, resulting from the use or misuse
+%% of any information contained here.
+%%
+%% All comments are the opinions of their respective authors and are not
+%% necessarily endorsed by the IEEE.
+%%
+%% This work is distributed under the LaTeX Project Public License (LPPL)
+%% ( http://www.latex-project.org/ ) version 1.3, and may be freely used,
+%% distributed and modified. A copy of the LPPL, version 1.3, is included
+%% in the base LaTeX documentation of all distributions of LaTeX released
+%% 2003/12/01 or later.
+%% Retain all contribution notices and credits.
+%% ** Modified files should be clearly indicated as such, including  **
+%% ** renaming them and changing author support contact information. **
+%%*************************************************************************
+
+
+% *** Authors should verify (and, if needed, correct) their LaTeX system  ***
+% *** with the testflow diagnostic prior to trusting their LaTeX platform ***
+% *** with production work. The IEEE's font choices and paper sizes can   ***
+% *** trigger bugs that do not appear when using other class files.       ***                          ***
+% The testflow support page is at:
+% http://www.michaelshell.org/tex/testflow/
+
+
+% IEEEtran V1.7 and later provides for these CLASSINPUT macros to allow the
+% user to reprogram some IEEEtran.cls defaults if needed. These settings
+% override the internal defaults of IEEEtran.cls regardless of which class
+% options are used. Do not use these unless you have good reason to do so as
+% they can result in nonIEEE compliant documents. User beware. ;)
+%
+%\newcommand{\CLASSINPUTbaselinestretch}{1.0} % baselinestretch
+%\newcommand{\CLASSINPUTinnersidemargin}{1in} % inner side margin
+%\newcommand{\CLASSINPUToutersidemargin}{1in} % outer side margin
+%\newcommand{\CLASSINPUTtoptextmargin}{1in}   % top text margin
+%\newcommand{\CLASSINPUTbottomtextmargin}{1in}% bottom text margin
+
+
+
+
+%
+\documentclass[10pt,journal,compsoc]{IEEEtran}
+% If IEEEtran.cls has not been installed into the LaTeX system files,
+% manually specify the path to it like:
+% \documentclass[10pt,journal,compsoc]{../sty/IEEEtran}
+
+
+% For Computer Society journals, IEEEtran defaults to the use of 
+% Palatino/Palladio as is done in IEEE Computer Society journals.
+% To go back to Times Roman, you can use this code:
+%\renewcommand{\rmdefault}{ptm}\selectfont
+
+
+
+
+
+% Some very useful LaTeX packages include:
+% (uncomment the ones you want to load)
+
+
+
+% *** MISC UTILITY PACKAGES ***
+%
+%\usepackage{ifpdf}
+% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
+% compilation based on whether the output is pdf or dvi.
+% usage:
+% \ifpdf
+%   % pdf code
+% \else
+%   % dvi code
+% \fi
+% The latest version of ifpdf.sty can be obtained from:
+% http://www.ctan.org/pkg/ifpdf
+% Also, note that IEEEtran.cls V1.7 and later provides a builtin
+% \ifCLASSINFOpdf conditional that works the same way.
+% When switching from latex to pdflatex and vice-versa, the compiler may
+% have to be run twice to clear warning/error messages.
+
+
+
+
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\ifCLASSINFOpdf
+  % \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+% graphicx was written by David Carlisle and Sebastian Rahtz. It is
+% required if you want graphics, photos, etc. graphicx.sty is already
+% installed on most LaTeX systems. The latest version and documentation
+% can be obtained at: 
+% http://www.ctan.org/pkg/graphicx
+% Another good source of documentation is "Using Imported Graphics in
+% LaTeX2e" by Keith Reckdahl which can be found at:
+% http://www.ctan.org/pkg/epslatex
+%
+% latex, and pdflatex in dvi mode, support graphics in encapsulated
+% postscript (.eps) format. pdflatex in pdf mode supports graphics
+% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
+% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
+% not a bitmapped formats (.jpeg, .png). The IEEE frowns on bitmapped formats
+% which can result in "jaggedy"/blurry rendering of lines and letters as
+% well as large increases in file sizes.
+%
+% You can find documentation about the pdfTeX application at:
+% http://www.tug.org/applications/pdftex
+
+
+
+
+
+% *** MATH PACKAGES ***
+%
+%\usepackage{amsmath}
+% A popular package from the American Mathematical Society that provides
+% many useful and powerful commands for dealing with mathematics.
+%
+% Note that the amsmath package sets \interdisplaylinepenalty to 10000
+% thus preventing page breaks from occurring within multiline equations. Use:
+%\interdisplaylinepenalty=2500
+% after loading amsmath to restore such page breaks as IEEEtran.cls normally
+% does. amsmath.sty is already installed on most LaTeX systems. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/pkg/amsmath
+
+
+
+
+
+% *** SPECIALIZED LIST PACKAGES ***
+%\usepackage{acronym}
+% acronym.sty was written by Tobias Oetiker. This package provides tools for
+% managing documents with large numbers of acronyms. (You don't *have* to
+% use this package - unless you have a lot of acronyms, you may feel that
+% such package management of them is bit of an overkill.)
+% Do note that the acronym environment (which lists acronyms) will have a
+% problem when used under IEEEtran.cls because acronym.sty relies on the
+% description list environment - which IEEEtran.cls has customized for
+% producing IEEE style lists. A workaround is to declared the longest
+% label width via the IEEEtran.cls \IEEEiedlistdecl global control:
+%
+% \renewcommand{\IEEEiedlistdecl}{\IEEEsetlabelwidth{SONET}}
+% \begin{acronym}
+%
+% \end{acronym}
+% \renewcommand{\IEEEiedlistdecl}{\relax}% remember to reset \IEEEiedlistdecl
+%
+% instead of using the acronym environment's optional argument.
+% The latest version and documentation can be obtained at:
+% http://www.ctan.org/pkg/acronym
+
+
+%\usepackage{algorithmic}
+% algorithmic.sty was written by Peter Williams and Rogerio Brito.
+% This package provides an algorithmic environment fo describing algorithms.
+% You can use the algorithmic environment in-text or within a figure
+% environment to provide for a floating algorithm. Do NOT use the algorithm
+% floating environment provided by algorithm.sty (by the same authors) or
+% algorithm2e.sty (by Christophe Fiorio) as the IEEE does not use dedicated
+% algorithm float types and packages that provide these will not provide
+% correct IEEE style captions. The latest version and documentation of
+% algorithmic.sty can be obtained at:
+% http://www.ctan.org/pkg/algorithms
+% Also of interest may be the (relatively newer and more customizable)
+% algorithmicx.sty package by Szasz Janos:
+% http://www.ctan.org/pkg/algorithmicx
+
+
+
+
+% *** ALIGNMENT PACKAGES ***
+%
+%\usepackage{array}
+% Frank Mittelbach's and David Carlisle's array.sty patches and improves
+% the standard LaTeX2e array and tabular environments to provide better
+% appearance and additional user controls. As the default LaTeX2e table
+% generation code is lacking to the point of almost being broken with
+% respect to the quality of the end results, all users are strongly
+% advised to use an enhanced (at the very least that provided by array.sty)
+% set of table tools. array.sty is already installed on most systems. The
+% latest version and documentation can be obtained at:
+% http://www.ctan.org/pkg/array
+
+
+%\usepackage{mdwmath}
+%\usepackage{mdwtab}
+% Also highly recommended is Mark Wooding's extremely powerful MDW tools,
+% especially mdwmath.sty and mdwtab.sty which are used to format equations
+% and tables, respectively. The MDWtools set is already installed on most
+% LaTeX systems. The lastest version and documentation is available at:
+% http://www.ctan.org/pkg/mdwtools
+
+
+% IEEEtran contains the IEEEeqnarray family of commands that can be used to
+% generate multiline equations as well as matrices, tables, etc., of high
+% quality.
+
+
+%\usepackage{eqparbox}
+% Also of notable interest is Scott Pakin's eqparbox package for creating
+% (automatically sized) equal width boxes - aka "natural width parboxes".
+% Available at:
+% http://www.ctan.org/pkg/eqparbox
+
+
+
+
+% *** SUBFIGURE PACKAGES ***
+%\ifCLASSOPTIONcompsoc
+%  \usepackage[caption=false,font=footnotesize,labelfont=sf,textfont=sf]{subfig}
+%\else
+%  \usepackage[caption=false,font=footnotesize]{subfig}
+%\fi
+% subfig.sty, written by Steven Douglas Cochran, is the modern replacement
+% for subfigure.sty, the latter of which is no longer maintained and is
+% incompatible with some LaTeX packages including fixltx2e. However,
+% subfig.sty requires and automatically loads Axel Sommerfeldt's caption.sty
+% which will override IEEEtran.cls' handling of captions and this will result
+% in non-IEEE style figure/table captions. To prevent this problem, be sure
+% and invoke subfig.sty's "caption=false" package option (available since
+% subfig.sty version 1.3, 2005/06/28) as this is will preserve IEEEtran.cls
+% handling of captions.
+% Note that the Computer Society format requires a sans serif font rather
+% than the serif font used in traditional IEEE formatting and thus the need
+% to invoke different subfig.sty package options depending on whether
+% compsoc mode has been enabled.
+%
+% The latest version and documentation of subfig.sty can be obtained at:
+% http://www.ctan.org/pkg/subfig
+
+
+
+
+% *** FLOAT PACKAGES ***
+%
+%\usepackage{fixltx2e}
+% fixltx2e, the successor to the earlier fix2col.sty, was written by
+% Frank Mittelbach and David Carlisle. This package corrects a few problems
+% in the LaTeX2e kernel, the most notable of which is that in current
+% LaTeX2e releases, the ordering of single and double column floats is not
+% guaranteed to be preserved. Thus, an unpatched LaTeX2e can allow a
+% single column figure to be placed prior to an earlier double column
+% figure.
+% Be aware that LaTeX2e kernels dated 2015 and later have fixltx2e.sty's
+% corrections already built into the system in which case a warning will
+% be issued if an attempt is made to load fixltx2e.sty as it is no longer
+% needed.
+% The latest version and documentation can be found at:
+% http://www.ctan.org/pkg/fixltx2e
+
+
+%\usepackage{stfloats}
+% stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
+% the ability to do double column floats at the bottom of the page as well
+% as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
+% LaTeX2e). It also provides a command:
+%\fnbelowfloat
+% to enable the placement of footnotes below bottom floats (the standard
+% LaTeX2e kernel puts them above bottom floats). This is an invasive package
+% which rewrites many portions of the LaTeX2e float routines. It may not work
+% with other packages that modify the LaTeX2e float routines. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/pkg/stfloats
+% Do not use the stfloats baselinefloat ability as the IEEE does not allow
+% \baselineskip to stretch. Authors submitting work to the IEEE should note
+% that the IEEE rarely uses double column equations and that authors should try
+% to avoid such use. Do not be tempted to use the cuted.sty or midfloat.sty
+% packages (also by Sigitas Tolusis) as the IEEE does not format its papers in
+% such ways.
+% Do not attempt to use stfloats with fixltx2e as they are incompatible.
+% Instead, use Morten Hogholm'a dblfloatfix which combines the features
+% of both fixltx2e and stfloats:
+%
+% \usepackage{dblfloatfix}
+% The latest version can be found at:
+% http://www.ctan.org/pkg/dblfloatfix
+
+
+%\ifCLASSOPTIONcaptionsoff
+%  \usepackage[nomarkers]{endfloat}
+% \let\MYoriglatexcaption\caption
+% \renewcommand{\caption}[2][\relax]{\MYoriglatexcaption[#2]{#2}}
+%\fi
+% endfloat.sty was written by James Darrell McCauley, Jeff Goldberg and 
+% Axel Sommerfeldt. This package may be useful when used in conjunction with 
+% IEEEtran.cls'  captionsoff option. Some IEEE journals/societies require that
+% submissions have lists of figures/tables at the end of the paper and that
+% figures/tables without any captions are placed on a page by themselves at
+% the end of the document. If needed, the draftcls IEEEtran class option or
+% \CLASSINPUTbaselinestretch interface can be used to increase the line
+% spacing as well. Be sure and use the nomarkers option of endfloat to
+% prevent endfloat from "marking" where the figures would have been placed
+% in the text. The two hack lines of code above are a slight modification of
+% that suggested by in the endfloat docs (section 8.4.1) to ensure that
+% the full captions always appear in the list of figures/tables - even if
+% the user used the short optional argument of \caption[]{}.
+% IEEE papers do not typically make use of \caption[]'s optional argument,
+% so this should not be an issue. A similar trick can be used to disable
+% captions of packages such as subfig.sty that lack options to turn off
+% the subcaptions:
+% For subfig.sty:
+% \let\MYorigsubfloat\subfloat
+% \renewcommand{\subfloat}[2][\relax]{\MYorigsubfloat[]{#2}}
+% However, the above trick will not work if both optional arguments of
+% the \subfloat command are used. Furthermore, there needs to be a
+% description of each subfigure *somewhere* and endfloat does not add
+% subfigure captions to its list of figures. Thus, the best approach is to
+% avoid the use of subfigure captions (many IEEE journals avoid them anyway)
+% and instead reference/explain all the subfigures within the main caption.
+% The latest version of endfloat.sty and its documentation can obtained at:
+% http://www.ctan.org/pkg/endfloat
+%
+% The IEEEtran \ifCLASSOPTIONcaptionsoff conditional can also be used
+% later in the document, say, to conditionally put the References on a 
+% page by themselves.
+
+
+
+
+
+% *** PDF, URL AND HYPERLINK PACKAGES ***
+%
+%\usepackage{url}
+% url.sty was written by Donald Arseneau. It provides better support for
+% handling and breaking URLs. url.sty is already installed on most LaTeX
+% systems. The latest version and documentation can be obtained at:
+% http://www.ctan.org/pkg/url
+% Basically, \url{my_url_here}.
+
+
+% NOTE: PDF thumbnail features are not required in IEEE papers
+%       and their use requires extra complexity and work.
+%\ifCLASSINFOpdf
+%  \usepackage[pdftex]{thumbpdf}
+%\else
+%  \usepackage[dvips]{thumbpdf}
+%\fi
+% thumbpdf.sty and its companion Perl utility were written by Heiko Oberdiek.
+% It allows the user a way to produce PDF documents that contain fancy
+% thumbnail images of each of the pages (which tools like acrobat reader can
+% utilize). This is possible even when using dvi->ps->pdf workflow if the
+% correct thumbpdf driver options are used. thumbpdf.sty incorporates the
+% file containing the PDF thumbnail information (filename.tpm is used with
+% dvips, filename.tpt is used with pdftex, where filename is the base name of
+% your tex document) into the final ps or pdf output document. An external
+% utility, the thumbpdf *Perl script* is needed to make these .tpm or .tpt
+% thumbnail files from a .ps or .pdf version of the document (which obviously
+% does not yet contain pdf thumbnails). Thus, one does a:
+% 
+% thumbpdf filename.pdf 
+%
+% to make a filename.tpt, and:
+%
+% thumbpdf --mode dvips filename.ps
+%
+% to make a filename.tpm which will then be loaded into the document by
+% thumbpdf.sty the NEXT time the document is compiled (by pdflatex or
+% latex->dvips->ps2pdf). Users must be careful to regenerate the .tpt and/or
+% .tpm files if the main document changes and then to recompile the
+% document to incorporate the revised thumbnails to ensure that thumbnails
+% match the actual pages. It is easy to forget to do this!
+% 
+% Unix systems come with a Perl interpreter. However, MS Windows users
+% will usually have to install a Perl interpreter so that the thumbpdf
+% script can be run. The Ghostscript PS/PDF interpreter is also required.
+% See the thumbpdf docs for details. The latest version and documentation
+% can be obtained at.
+% http://www.ctan.org/pkg/thumbpdf
+
+
+% NOTE: PDF hyperlink and bookmark features are not required in IEEE
+%       papers and their use requires extra complexity and work.
+% *** IF USING HYPERREF BE SURE AND CHANGE THE EXAMPLE PDF ***
+% *** TITLE/SUBJECT/AUTHOR/KEYWORDS INFO BELOW!!           ***
+\newcommand\MYhyperrefoptions{bookmarks=true,bookmarksnumbered=true,
+pdfpagemode={UseOutlines},plainpages=false,pdfpagelabels=true,
+colorlinks=true,linkcolor={black},citecolor={black},urlcolor={black},
+pdftitle={Documentacion de la Práctica 3 y 4},%<!CHANGE!
+pdfsubject={Documentacion de uso},%<!CHANGE!
+pdfauthor={Sánchez Casanueva, Luis},%<!CHANGE!
+pdfkeywords={github, python, c, wrapper, analisis, latex, numpy, matplotlib, latex}}%<^!CHANGE!
+%\ifCLASSINFOpdf
+%\usepackage[\MYhyperrefoptions,pdftex]{hyperref}
+%\else
+%\usepackage[\MYhyperrefoptions,breaklinks=true,dvips]{hyperref}
+%\usepackage{breakurl}
+%\fi
+% One significant drawback of using hyperref under DVI output is that the
+% LaTeX compiler cannot break URLs across lines or pages as can be done
+% under pdfLaTeX's PDF output via the hyperref pdftex driver. This is
+% probably the single most important capability distinction between the
+% DVI and PDF output. Perhaps surprisingly, all the other PDF features
+% (PDF bookmarks, thumbnails, etc.) can be preserved in
+% .tex->.dvi->.ps->.pdf workflow if the respective packages/scripts are
+% loaded/invoked with the correct driver options (dvips, etc.). 
+% As most IEEE papers use URLs sparingly (mainly in the references), this
+% may not be as big an issue as with other publications.
+%
+% That said, Vilar Camara Neto created his breakurl.sty package which
+% permits hyperref to easily break URLs even in dvi mode.
+% Note that breakurl, unlike most other packages, must be loaded
+% AFTER hyperref. The latest version of breakurl and its documentation can
+% be obtained at:
+% http://www.ctan.org/pkg/breakurl
+% breakurl.sty is not for use under pdflatex pdf mode.
+%
+% The advanced features offer by hyperref.sty are not required for IEEE
+% submission, so users should weigh these features against the added
+% complexity of use.
+% The package options above demonstrate how to enable PDF bookmarks
+% (a type of table of contents viewable in Acrobat Reader) as well as
+% PDF document information (title, subject, author and keywords) that is
+% viewable in Acrobat reader's Document_Properties menu. PDF document
+% information is also used extensively to automate the cataloging of PDF
+% documents. The above set of options ensures that hyperlinks will not be
+% colored in the text and thus will not be visible in the printed page,
+% but will be active on "mouse over". USING COLORS OR OTHER HIGHLIGHTING
+% OF HYPERLINKS CAN RESULT IN DOCUMENT REJECTION BY THE IEEE, especially if
+% these appear on the "printed" page. IF IN DOUBT, ASK THE RELEVANT
+% SUBMISSION EDITOR. You may need to add the option hypertexnames=false if
+% you used duplicate equation numbers, etc., but this should not be needed
+% in normal IEEE work.
+% The latest version of hyperref and its documentation can be obtained at:
+% http://www.ctan.org/pkg/hyperref
+
+
+
+
+
+% *** Do not adjust lengths that control margins, column widths, etc. ***
+% *** Do not use packages that alter fonts (such as pslatex).         ***
+% There should be no need to do such things with IEEEtran.cls V1.6 and later.
+% (Unless specifically asked to do so by the journal or conference you plan
+% to submit to, of course. )
+
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\usepackage[utf8]{inputenc}     % Soluciona los errores de acentos
+\usepackage[spanish]{babel}	% fecha y datos generales en español
+\usepackage{hyperref}
+\usepackage{graphicx}		% resize de las box para ajustar
+\graphicspath{ {./images/} }
+\usepackage{float}			% todopoderoso H
+\usepackage{caption}
+\captionsetup[figure]{font=small}
+\usepackage[export]{adjustbox} % loads also graphicx
+\usepackage{listings}
+
+
+\begin{document}
+%
+% paper title
+% Titles are generally capitalized except for words such as a, an, and, as,
+% at, but, by, for, in, nor, of, on, or, the, to and up, which are usually
+% not capitalized unless they are the first or last word of the title.
+% Linebreaks \\ can be used within to get better formatting as desired.
+% Do not put math or special symbols in the title.
+\title{LaTeX, git, python, Numpy, Matplotlib, gdb y profiling}
+%
+%
+% author names and IEEE memberships
+% note positions of commas and nonbreaking spaces ( ~ ) LaTeX will not break
+% a structure at a ~ so this keeps an author's name from being broken across
+% two lines.
+% use \thanks{} to gain access to the first footnote area
+% a separate \thanks must be used for each paragraph as LaTeX2e's \thanks
+% was not built to handle multiple paragraphs
+%
+%
+%\IEEEcompsocitemizethanks is a special \thanks that produces the bulleted
+% lists the Computer Society journals use for "first footnote" author
+% affiliations. Use \IEEEcompsocthanksitem which works much like \item
+% for each affiliation group. When not in compsoc mode,
+% \IEEEcompsocitemizethanks becomes like \thanks and
+% \IEEEcompsocthanksitem becomes a line break with idention. This
+% facilitates dual compilation, although admittedly the differences in the
+% desired content of \author between the different types of papers makes a
+% one-size-fits-all approach a daunting prospect. For instance, compsoc 
+% journal papers have the author affiliations above the "Manuscript
+% received ..."  text while in non-compsoc journals this is reversed. Sigh.
+\author{ Luis Sánchez Casanueva}% <-this % stops a space
+\IEEEcompsocitemizethanks{\IEEEcompsocthanksitem Muchas gracias al lector y a los profesores de la UM, y mas especificamente a los de la FIUM por su labor en estos tiempos de excepcionalidad\protect\\
+% note need leading \protect in front of \\ to get a newline within \thanks as
+% \\ is fragile and will error, could use \hfil\break instead.
+E-mail: luis.sanchezc@um.es
+\IEEEcompsocthanksitem Uso solo para evaluación docente, S. Luis adscrito a la UMU}% <-this % stops a space
+\thanks{Manuscrito realizado el 19/05/2020}
+
+% note the % following the last \IEEEmembership and also \thanks - 
+% these prevent an unwanted space from occurring between the last author name
+% and the end of the author line. i.e., if you had this:
+% 
+% \author{....lastname \thanks{...} \thanks{...} }
+%                     ^------------^------------^----Do not want these spaces!
+%
+% a space would be appended to the last name and could cause every name on that
+% line to be shifted left slightly. This is one of those "LaTeX things". For
+% instance, "\textbf{A} \textbf{B}" will typeset as "A B" not "AB". To get
+% "AB" then you have to do: "\textbf{A}\textbf{B}"
+% \thanks is no different in this regard, so shield the last } of each \thanks
+% that ends a line with a % and do not let a space in before the next \thanks.
+% Spaces after \IEEEmembership other than the last one are OK (and needed) as
+% you are supposed to have spaces between the names. For what it is worth,
+% this is a minor point as most people would not even notice if the said evil
+% space somehow managed to creep in.
+
+
+
+% The paper headers
+\markboth{Articulo de \LaTeX\,~Vol.~1, No.~3, Mayo~2020, 1º Edición}%
+{Shell \MakeLowercase{\textit{et al.}}: Demo de uso de Python, c, matplotlib, Numpy para el análisis del rendimiento de diferntes funciones y su representación en una gráfica}
+% The only time the second header will appear is for the odd numbered pages
+% after the title page when using the twoside option.
+% 
+% *** Note that you probably will NOT want to include the author's ***
+% *** name in the headers of peer review papers.                   ***
+% You can use \ifCLASSOPTIONpeerreview for conditional compilation here if
+% you desire.
+
+
+
+% The publisher's ID mark at the bottom of the page is less important with
+% Computer Society journal papers as those publications place the marks
+% outside of the main text columns and, therefore, unlike regular IEEE
+% journals, the available text space is not reduced by their presence.
+% If you want to put a publisher's ID mark on the page you can do it like
+% this:
+%\IEEEpubid{0000--0000/00\$00.00~\copyright~2015 IEEE}
+% or like this to get the Computer Society new two part style.
+%\IEEEpubid{\makebox[\columnwidth]{\hfill 0000--0000/00/\$00.00~\copyright~2015 IEEE}%
+%\hspace{\columnsep}\makebox[\columnwidth]{Published by the IEEE Computer Society\hfill}}
+% Remember, if you use this you must call \IEEEpubidadjcol in the second
+% column for its text to clear the IEEEpubid mark (Computer Society journal
+% papers don't need this extra clearance.)
+
+
+
+% use for special paper notices
+%\IEEEspecialpapernotice{(Invited Paper)}
+
+
+
+% for Computer Society papers, we must declare the abstract and index terms
+% PRIOR to the title within the \IEEEtitleabstractindextext IEEEtran
+% command as these need to go into the title area created by \maketitle.
+% As a general rule, do not put math, special symbols or citations
+% in the abstract or keywords.
+\IEEEtitleabstractindextext{%
+\begin{abstract}
+En esta tarea, mediante VMbox y una MV de linux, usaremos spyder como ide para el desarrollo del ejercicio de la práctica, a la par que mantenemos un control de las versiones durante todo el desarrollo mediante un repositorio en gitHub.
+Todo ello para cumplimentar y realizar el analisis y las restricciones que el enunciado[1] nos plantea, y las indicaciones de la rúbrica [2]
+
+\end{abstract}
+
+% Note that keywords are not normally used for peerreview papers.
+\begin{IEEEkeywords}
+UMU, FIUM, Ejercicio, Python, C, Numpy, matplotlib, Latex \LaTeX.
+\end{IEEEkeywords}}
+
+
+% make the title area
+\maketitle
+
+
+% To allow for easy dual compilation without having to reenter the
+% abstract/keywords data, the \IEEEtitleabstractindextext text will
+% not be used in maketitle, but will appear (i.e., to be "transported")
+% here as \IEEEdisplaynontitleabstractindextext when compsoc mode
+% is not selected <OR> if conference mode is selected - because compsoc
+% conference papers position the abstract like regular (non-compsoc)
+% papers do!
+\IEEEdisplaynontitleabstractindextext
+% \IEEEdisplaynontitleabstractindextext has no effect when using
+% compsoc under a non-conference mode.
+
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+\IEEEpeerreviewmaketitle
+
+
+\ifCLASSOPTIONcompsoc
+\IEEEraisesectionheading{\section{Introduction}\label{sec:introduction}}
+\else
+\section{Introduction}
+\label{sec:introduction}
+\fi
+% Computer Society journal (but not conference!) papers do something unusual
+% with the very first section heading (almost always called "Introduction").
+% They place it ABOVE the main text! IEEEtran.cls does not automatically do
+% this for you, but you can achieve this effect with the provided
+% \IEEEraisesectionheading{} command. Note the need to keep any \label that
+% is to refer to the section immediately after \section in the above as
+% \IEEEraisesectionheading puts \section within a raised box.
+
+
+
+
+% The very first letter is a 2 line initial drop letter followed
+% by the rest of the first word in caps (small caps for compsoc).
+% 
+% form to use if the first word consists of a single letter:
+% \IEEEPARstart{A}{demo} file is ....
+% 
+% form to use if you need the single drop letter followed by
+% normal text (unknown if ever used by the IEEE):
+% \IEEEPARstart{A}{}demo file is ....
+% 
+% Some journals put the first two words in caps:
+% \IEEEPARstart{T}{his demo} file is ....
+% 
+% Here we have the typical use of a "T" for an initial drop letter
+% and "HIS" in caps to complete the first word.
+\IEEEPARstart{E}{n primer lugar} explicaremos brevemente los conceptos básicos que rodean a las diferentes
+tareas que realizaremos durante el desarrollo de esta practica.
+
+\subsection{Conceptos clave}
+\subsubsection{Python}
+Es un lenguaje de programacion de código abierto interpretádo, dinámico y multiplataforma cuya filosofía es la legibilidad de su código, mediante la resolucion dinámica de nombres.
+
+\subsubsection{C}
+Lenguaje de programación orientado a los sistemas operativos pero actualmente de propósito general. De nivel medio pero apreciado por la eficiencia del código que produce.
+En nuestro caso lo usaremos para suplir aspectos que python no nos deja configurar.
+
+\subsubsection{Numpy}
+Es una conocida extensión 'open Source' de python que le agrega soporte para vectores y matrices con funciones matemáticas de alto nivel.
+
+\subsubsection{matlibplot}
+Es una biblioteca para la generación de graficos a partir de listas o arrays en Python.
+Proporciona una API 'pylab' que se asemeja a la de 'MATLAB' 
+
+\subsubsection{git}
+Software para el control de versiones, de código libre, y ampliamente usado en la actualidad.
+
+\subsubsection{gitHub}
+Es una plataforma de desarrollo colaborativo que aloja proyectos utilizando el control de versiones de Git.
+
+% needed in second column of first page if using \IEEEpubid
+%\IEEEpubidadjcol
+
+\section{Resolución del problema}
+En primer lugar plantearemos el ejercicio y a continuación iremos detallando como fue el desarrollo del ejercicio.
+
+\subsection{Enunciado del ejercicio}
+Imaginemos que, dada una lista de elementos, queremos obtener una nueva versión de la misma sin repeticiones. Python nos ofrece los conjuntos para ello, pero también podríamos conseguir lo mismo usando listas, diccionarios, etc. Queremos evaluar las distintas posibilidades que tenemos en Python para saber cuál es la más eficiente y compararlas con una implementación propia en C de una función de eliminación de duplicados.
+
+Debemos implementar un programa en Python que reciba \emph{tres parámetros}: \emph{un fichero de entrada} con una lista de elementos, uno por linea, \emph{un fichero de salida} donde se guardará esa misma lista de elementos pero sin repeticiones, \emph{y otro fichero de salida} donde se guardará en PDF la gráfica que mostrará el tiempo usado por cada técnica para los distintos tamaños de datos. Esta gráfica se generará con Matplotlib. El orden de salida puede ser distinto al de entrada.
+
+El fichero de entrada debe contener 2000000 numeros y deben ser numeros naturales entre 0 y 99999 (ambos inclusive), posteriormente, hacer un estudio de los tiempos de las técnicas incrementando de 2000 en 2000 el numero de casos analizados hasta llegar a los 200000.
+
+Dos de los metodos deben ser mediante estructuras diferentes en Python y una tercera forma que debemos implementar en C y que usaremos desde Python a través de ctypes
+
+Este último método implementado en C, debe recibir la lista de elementos original y devolver la lista sin duplicados. La memoria dinámica que se necesite reservar se reservará en Python. Los alumnos eligen que código implementar para que sea lo más eficiente posible.
+
+Aparte de la gráfica generada en PDF se deberáincluir un perfilado (profiling) del tiempo de ejecución y el consumo de memoria durante la ejecución.
+
+Se deben controlar posibles errores, mediante la captura de excepciones, mostrando en su lugar un mensaje de error informativo.
+
+\subsection{Desarrollo del ejercicio}
+Para la resolución del ejercicio partimos del código de partida proporcionado para el boletín 3 del bloque 4 de prácticas[3].
+ 
+\subsubsection{Control de versiones}
+Lo primero que hice fue inicializar nuestro repositorio git local con el codigo de partida, posteriormente cada subseccion compondrá un hito que considere suficiente para merecer un commit. No subí a la plataforma de github mi repositorio hasta casi el final[3], se puede ver un 'merge branch' en los commits cuando tubo lugar.
+
+
+
+\subsubsection{Desarrollo del generador en Python}
+En primer lugar, dado que no tenia nociones de Python, empece con la tarea de generar el fichero de entrada con el formato indicado para ir cogiendo habilidades y nociones con un problema sencillo. 
+En primer lugar comprueba que el número de parámetros sea el correcto, es decir: uno, y que puede crear un fichero con el texto que le hemos pasado por parámetro.
+
+A continuación y mediante las extensiones que nos ofrece Numpy, creamos un array aleatorio de numeros reales entre '0' y '1', y lo multiplicamos por el máximo número con el que queremos poblar nuestro array generado, '99999'.
+Iteramos el array y los escribimos en el fichero, y por ultimo lo cerramos.
+
+\subsubsection{Esqueleto y primer método}
+A continuación y usando como guia el código proporcionado en 'bloque4.py' modifique la función 'main()' para que aceptara el numero de parametros especificados en la práctica e hiciera las correspondientes comprobaciones, es decir: Comprobar que el numero de parametros es '3', comprobar que se puede abrir el archivo pasado como primer parámetro y comprobar que ningun número del archivo supere el 99999.
+
+Una vez los parametros eran almacenados correctamente y era capaz de operar con ellos implementé mi primer método nativo de Python para eliminar duplicados, utilicé la funcionalidad de 'set()' para eliminar duplicados de una lista, pero me devolvia un tipo de datos que no me aceptaba 'matplotlib' para representar, fue necesario procesarlos con 'sorted()' para que fuera hasheables (les añade un orden).
+
+Dado que aun no estaba seguro del funcionamiento, aproveche estas entradas para debugger y comprender el funcionamiento del código en Python, realmente aun no entendia que se me pedia dibujar como comparativa y a esta altura aun no se dibujaba nada. El commit se realiza cuando se genera el fichero de salida, con el formato correcto y la solución correcta (duplicados eliminados) con este primer método (no conserva el orden).
+
+\subsubsection{Segundo método y comprension de la grafica objetivo}
+Cuando iva a implementar el segundo metodo de eliminación de dúplicados en Python, releyendo el enunciado caí en que me pediais el resultado de comparar los rendimientos de los diferentes métodos para diferentes tamaños de entrada. Modifique ligeramente el main() para guardar las listas de los tiempos de cada metodo, y modifique el flujo para meter el bucle que me permitiría comprar los resultados. También añadi un segundo método mediante 'set()' y 'list()' que es el mas habitual (conserva el orden)
+
+
+\subsubsection{Dibujo mediante matplotlib de la comparativa}
+En esta fase, modifique el funcionamiento de la funcion proporcionada para dibujar la gráfica, para que mostrara los datos de los tiempos de ambos métodos (1 y 2) y su correcta nomenclatura en el gráfico.
+
+\subsubsection{Funcion en C}
+Esta fase era en la que más cómodo me encontraba, escribi tanto wrapper.c como wrapper.h, se que no es correcto ni necesaria esa nomenclatura dado que el wrapper (envoltorio) es la clase en Python que ejecuta la librería dinámica, pero en el momento no me di cuenta.
+El algoritmo usado para eliminar los duplicados es una especie de 'algoritmo de la burbuja' pero solo moviendo al elemento repetido al ultimo lugar y decrementando el size del array.
+
+Posteriormente me daria cuenta que su eficiencia era nula y lo cambiaría por uno un poco mas eficiente ( me deje el grueso del algoritmo comentado y no vi su ineficiencia ).
+
+\subsubsection{Implementación del wrapper}
+Esta parte de la tarea era la que más me imponía, conceptualmente no sabía como llevar a cabo la comunicación mediante los ctypes de python a c.
+El esqueleto y estructura el el mismo que el proporcionado pero adaptando el numero de parametros, el nombre y ubicación de las librerias y los parámetros suministrados.
+
+El commit se realiza funcionando el metodo 3 en el bloque principal y pudiendo medir sus tiempos.
+
+\subsubsection{Inclusion del 3er método en la grafica}
+Este commit lleva consigo la inclusión del método 3 en los analisis realizados y cambiando la manera de dibujarlos en un primer intento por dibujar ambas modelos de gráfica originales en el pdf.
+
+\subsubsection{Impresión al pdf}
+A continuación modifique los metodos de impresion y creacion de las figuras para poder generar y guardar el archivo, se me olvidó controlar la excepción de no poder crear el archivo, será incluida en un commit posterior.
+
+\subsubsection{Distribucion del proyecto}
+En este commit redistribuí los elementos en la estuctura solicitada por los profesores (/doc /src) y modifique las relaciones en codigo para que se encontraran las librerias en sus nuevas localizaciones. La carpeta /doc no se incluyo en el repositorio al estar vacia y no contener ningun archivo aun.
+
+\subsubsection{Aclaracion}
+Los dos siguientes commits corresponden al momento en el que caí que era necesario que el repositorio git estuviera accesible online a través de la plataforma de GitHub, elimine un README del repositorio online (primer commit), para que no archivos conflictivos y poder hacer un pull al repositorio remoto, y a continuacion realice un pull origin con el flag '--allow-unrelated-histories'.
+
+\subsubsection{README y segundo intento}
+Volvi a intentar añadir la carpeta '/doc' vacia, e inclui un readme al proyecto.
+
+\subsubsection{último commit/pull}
+Por último, realice este documento, y tras finalizar su edicion realice el último pull, junto con las correcciones de errores que habia ido encontrando al tener que desgranar todo el proceso realizado en los últimos días para la elaboración del mismo.
+
+Entre otros correción de guardas al crear el pdf, des-comentar el metodo en C y por tanto darme cuenta de lo terrible de su eficiencia y tratar de corregirlo con la version 2.0 y otros menores
+
+\subsection{Apendice}
+A continuación listamos el código de las clases y el diagrama resultante de ejecutar la comparativa entre los tres métodos
+
+\subsubsection{base.py}
+
+\begin{lstlisting}[basicstyle=\tiny, language=Python]
+import sys
+import time
+import numpy as np
+import matplotlib.pyplot as plt
+from wrapper import wrapper 
+from matplotlib.backends.backend_pdf import PdfPages
+
+
+# Funcion auxiliar: muestra la figura matplotlib pendiente
+# y espera una pulsacion de tecla:
+#@profile
+def show_plot_and_wait_for_key():
+    
+    plt.show()
+    input("<Hit Enter To Close>")
+    plt.close()
+
+    
+# Función auxiliar que muestra en matplotlib los arrays de entrada y de salida:
+def plot_values(values_in1, values_in2, values_in3, name,
+			  line_else_bars=True, width=0.5):
+    f = plt.figure()
+    if line_else_bars == True:
+        plt.plot(values_in1, color = 'r', label="Method 1")
+        plt.plot(values_in2, color = 'g', label="Method 2") 
+        plt.plot(values_in3, color = 'b', label="Method 3") 
+    else:
+        plt.bar(np.arange(len(values_in1)) - width, values_in1, width=width, color='r', 
+                label="Method 1")
+        plt.bar(np.arange(len(values_in2)), values_in2, width=width, color='g', 
+                label="Method 2")
+        plt.bar(np.arange(len(values_in3)), values_in3, width=width, color='b', 
+                label="Method 3")
+
+    plt.title('Comparative of time spend between the methods'.format(["bars", "lines"]
+    								      [line_else_bars]))
+    plt.legend()
+    plt.xlabel('CasosConsiderados * 2000')
+    plt.ylabel('Segundos')
+    try:
+        f.savefig(str(name + ".pdf"),bbox_inches='tight')
+    except:
+        print("Error al crear el archivo pdf con los gráficos")
+
+# Código main:
+def main():   
+    # Control de argumentos de línea de comandos:
+    if len(sys.argv) != 4:
+        print("Uso: {} ficheroEntrada, ficheroSalida, pdfLogFile".format(sys.argv[0]))
+        sys.exit(0)
+        
+    #reading fEntrada
+    try:
+        f = open(sys.argv[1])
+        lista = f.readlines()
+    except:
+        print("No se encuentra el archivo de Entrada")
+        sys.exit(-1)
+        
+    slist = sorted(lista)
+    
+    #parsing fEntrada
+    try:
+        for number in slist:
+            N = int(number)
+            if not (0 <= N <= 99999):
+                raise ValueError()
+    except:
+        print("All values must be a int value between 0 and 99999")
+        sys.exit(-1)
+        
+    timeOption1 = []
+    timeOption2 = []
+    timeOption3 = []
+    
+    #Creamos las soluciones
+    for i in range(2000,200000,2000):
+        #Método 1
+        t0_sol1 = time.time_ns()
+        sol1 = sorted(set(slist[0:i]))
+        texec_sol1 = (time.time_ns()-t0_sol1)/1.0e9
+        
+        #Método 2
+        t0_sol2 = time.time_ns()
+        sol2 = list(set(slist[0:i]))
+        texec_sol2 = (time.time_ns()-t0_sol2)/1.0e9
+        
+        
+        
+        #Método 3
+        listTarget = slist[0:i]
+        results = [int(i) for i in listTarget]
+        sol3 = np.zeros_like(listTarget)
+        t0_sol3 = time.time_ns()
+        sol3 = wrapper(results,i)
+        texec_sol3 = (time.time_ns()-t0_sol3)/1.0e9
+        
+        
+        
+        #Guardamos los datos para esta iteracion
+        timeOption1.append(texec_sol1)
+        timeOption2.append(texec_sol2)
+        timeOption3.append(texec_sol3)
+    
+    #Creamos el archivo solucion
+    try:
+        name = sys.argv[2]
+        file = open(name, "w")
+        
+    except:
+        print("Can't create outputList file")
+        sys.exit(-1)
+
+    for num in sol1:
+        
+        file.write(str(num))
+       
+        
+    # Guardamos los graficos en el pdf de salida marcado
+    
+    print("Comenzamos el plot de las comparativas")
+    
+    plot_values(timeOption1, timeOption2, timeOption3, sys.argv[3])
+    
+    show_plot_and_wait_for_key()
+    
+
+
+ 
+if __name__ == '__main__':
+    main()
+
+\end{lstlisting}
+
+
+\subsubsection{generador.py}
+
+\begin{lstlisting}[basicstyle=\tiny,language=Python]
+import numpy as np
+import sys
+
+def main():   
+    # Control de argumentos de línea de comandos:
+    if len(sys.argv) != 2:
+        print("Uso: {} nombreFichero".format(sys.argv[0]))
+        sys.exit(0)
+    
+    try:
+        name = sys.argv[1]
+        file = open(name, "w")
+        
+    except:
+        print("Can't create file")
+        sys.exit(-1)
+
+
+    #Generamos el array de valores
+    SIZE = 200000  # Tamaño del array.
+    arr = np.random.rand(SIZE) * 99999
+    
+    #Lo guardamos en file
+    for x in arr:
+        numero = int(x)
+        file.write(str(numero))
+        file.write("\n")
+    
+    file.close
+    
+    
+if __name__ == '__main__':
+    main()
+\end{lstlisting}
+
+\subsubsection{wrapper.py}
+
+\begin{lstlisting}[basicstyle=\tiny,language=Python]
+import ctypes, os
+import numpy as np
+
+# Wrapper python para llamar a la función implementada en C.
+def wrapper(vin, size):
+    # Objeto correspondiente a la función dentro de la biblioteca.
+    funcwrapper = LIBWRAPPER.wrapper
+
+    # Prototipo de la función: dos arrays a floats, la longitud de 
+    # los arrays y el escalar de multiplicación. Observa que ctypes no 
+    # define punteros a datos que no sean c_char, c_wchar y c_void, por
+    # lo que hay que crearlos con POINTER. 
+    funcwrapper.argtypes = [ctypes.POINTER(ctypes.c_float),
+    		            ctypes.POINTER(ctypes.c_float), 
+    		            ctypes.c_int]
+
+    # Valor devuelto por la función (se puede eliminar, pues es el
+    # comportamiento por defecto).
+    funcwrapper.restype = ctypes.c_int
+
+    # Puesto que ctypes espera que los dos primeros parámetros sean
+    # instancias de punteros a c_float (es decir, instancias LP_c_float),
+    # según el prototipo de la función, no podemos usar directamente ni
+    # vin ni vout (como copia de vin), ya que esos elementos son de tipo
+    # List y no instancias de LP_c_float. Lo que hacemos es definir salida
+    # como un array de valores c_float, con tantos elementos como tiene vin.
+    # Observa que hacemos lo mismo con el primer parámetro que se le pasa 
+    # a la función, si bien, en este caso, los valores deben ser los del 
+    # vector de entrada.
+
+    salida=(ctypes.c_float * size)()
+    entrada =(ctypes.c_float * size)(*vin)
+    # Llamada a la función de la biblioteca compartida.
+    funcwrapper(entrada, salida, size)
+
+    # Vamos a devolver un vector. Para eso, hacemos una copia del vector
+    # de entrada. Podríamos devolver directamente «salida», pero sería
+    # un objeto de ctypes tal y como lo hemos definido, con lo que una
+    # simple orden «print(salida)» no nos mostraría su contenido sino 
+    # su tipo. Queda más "elegante" devolver algo como la entrada.
+    vout=np.resize(vin.copy(), len(salida))
+
+    # Copiamos a dicho vector de salida el resultado de la función.
+    for i in range(len(vout)):
+      vout[i]=salida[i]
+
+    # Devolvemos el vector de salida.
+    return vout
+
+if __name__ == "wrapper":
+    # Cargamos la biblioteca compartida en ctypes.
+    LIBWRAPPER = ctypes.CDLL (os.path.abspath(os.path.join(
+    						  os.path.dirname(__file__),
+    						  "../C/libwrapper.so.1"
+    						  )))
+
+\end{lstlisting}
+
+\subsubsection{wrapper.c v1.0 (DESCARTADA)}
+
+\begin{lstlisting}[basicstyle=\tiny]
+
+int wrapper( float *vin, float *vout,  int size)
+{
+   for(int i = 0; i<size-1; i++)
+    {
+        for(int j = i+1; j< size; j++)
+        {
+            if(vin[i] == vin[j])
+            {
+                for(int k = j; k<size-1; k++)
+                {
+                    float aux;
+                    aux = vin[k];
+                    vin[k] = vin[k+1];
+                    vin[k+1] = aux;
+                }
+                size--;
+                j--;
+            }
+        }
+    }
+    
+    for(int i=0;i<size;i++)
+    {
+        vout[i] = vin[i];
+    }
+    realloc(vout, size * sizeof(*vout));
+    return 0;
+}
+
+\end{lstlisting}
+
+\subsubsection{wrapper.c v2.0}
+
+\begin{lstlisting}[basicstyle=\tiny]
+
+int wrapper( float *vin, float *vout,  int size)
+{
+
+    int array[size];
+    
+    
+    for(int i = 0; i<size; i++)
+    {
+        array[(int)vin[i]] = 1;
+    }
+    
+    int newsize=0;
+    for(int i=0;i<size; i++)
+    {
+       if(array[i]==1){
+           vout[newsize] = i;
+           newsize++;
+        }
+    }
+    realloc(vout, size * sizeof(*vout));
+    return 0;
+}
+
+\end{lstlisting}
+\subsubsection{wrapper.h}
+
+\begin{lstlisting}[basicstyle=\tiny]
+
+
+int wrapper(float *vin,    // Vector de entrada
+            float *vout,   // Vector de salida
+            int size);     // Longitud de los vectores
+            
+
+
+\end{lstlisting}
+
+
+\subsubsection{Makefile}
+
+\begin{lstlisting}[basicstyle=\tiny]
+
+all: libwrapper.so.1.0.1 libwrapper.so.1
+
+libwrapper.so.1.0.1: wrapper.c wrapper.h
+	gcc -Wall -c -fPIC -g wrapper.c
+	gcc -shared -Wl,-soname,libwrapper.so.1 -o libwrapper.so.1.0.1 
+								wrapper.o
+
+libwrapper.so.1: libwrapper.so.1.0.1
+	ln -s libwrapper.so.1.0.1 libwrapper.so.1
+
+clean:
+	rm -fr libwrapper.so.1.0.1 libwrapper.so.1 wrapper.o *~ 
+
+
+\end{lstlisting}
+
+
+\section{Conclusión}
+
+Como siempre el camino para la realización de esta práctica ha estado plagado de piedras, probé primero a usar EVA para su realización, pero el sistema debe ester saturado, era impensable realizar la practica con unos tiempos de respuesta tan lentos. A continuación probe con el subsitema de linux integrado en w10 en mi portatil, pero fui incapaz de usar la interfaz gráfica de SPYDER puesto que el subsistema no conoce a los displays. Mi instalación de ubuntu dual con windows mediante GRUb no funciona, se me apaga cada vez que intento iniciarlo. 
+
+Por suerte, fui capaz de realizar la práctica en su totalidad creando una VM para ello.
+
+Respecto al contenido de la práctica en si mismo me a parecido exquisito, nunca habia trabajado con Python ni creado librerias dinamicas en un lenguaje diferente al del programa que estaba creando, me ha aportado un primer contacto con este lenguaje y las maravillosas posibilidades que ofrece, es un lenguaje que tengo pendiente dada mi afinidad por las IAs y el machine learning. LaTeX por su parte ya ha demostrado a lo largo del curso su utilidad y la facilidad que nos ofrece para generar documentos de calidad facilmente.
+No creo que mi función implementada en C haya cumplido en terminos de rendimiento, me habría gustado disponer de más tiempo para poder optimizarla más dado que ambas soluciones que planteé eran pésimas.
+Las funcionalidades de Git/GitHub en cambio han quedado en un segundo plano en mi caso, realizandose de manera metódica para cumplir un requisito pero dado que el proyecto lo he realizado de manera individual no hemos podido disfrutar de las ventajas que ofrece.
+En mi dia a dia yo suelo usar los servicios de google como repositorio, guarda historial de versiones para cada archivo con comentarios autor y fechas, la unica funcionalidad que no incorpora es la de generar ramas diferentes para el desarrollo del proyecto.
+
+
+% references section
+
+% can use a bibliography generated by BibTeX as a .bbl file
+% BibTeX documentation can be easily obtained at:
+% http://mirror.ctan.org/biblio/bibtex/contrib/doc/
+% The IEEEtran BibTeX style support page is at:
+% http://www.michaelshell.org/tex/ieeetran/bibtex/
+%\bibliographystyle{IEEEtran}
+% argument is your BibTeX string definitions and bibliography database(s)
+%\bibliography{IEEEabrv,../bib/paper}
+%
+% <OR> manually copy in the resultant .bbl file
+% set second argument of \begin to the number of references
+% (used to reserve space for the reference number labels box)
+\begin{thebibliography}{3}
+
+\bibitem{IEEEhowto:kopka}
+\url{https://aulavirtual.um.es/access/content/attachment/1918_G_2019_N_N/Tareas/9b880415-d8d5-4fd5-b503-a8359726218c/PracticaEntregable-Bloques3y4.pdf} \emph{UMU TEII}.\hskip 1em plus
+  0.5em minus 0.4em\relax  Entregable bloques 3-4 Curso 19/20.
+  
+\bibitem{IEEEhowto:kopka}
+\url{https://aulavirtual.um.es/access/content/attachment/1918_G_2019_N_N/Anuncios/3dbcbb7a-fbc5-4cbc-ba5a-399d11da60ab/RubricaTEII-B3-B4.pdf} \emph{Docker Docs}.\hskip 1em plus
+  0.5em minus 0.4em\relax  Rubrica entregables 3-4 Curso 19/20
+  
+  
+\bibitem{IEEEhowto:kopka}
+\url{https://github.com/Rakjas/b3-4TEII} \emph{Docker Docs}.\hskip 1em plus
+  0.5em minus 0.4em\relax  URL repositorio GitHub del proyecto
+  
+\end{thebibliography}
+
+
+\begin{IEEEbiographynophoto}{Luis Sánchez Casanueva}
+Luis Sánchez Casanueva, nacido el 3 de Julio de 1992 en Madrid, España, termino bachiller bilingüe en el 2010.
+Curso un grado en arquitectura entre 2010-2015 en Cartagena, abandonando en sus ultimos años de carrera por 
+encotrarse incomodo con los contenidos docentes/profesionales que estaba adquiriendo y en busca de una carrera mas
+practica y logica que le realizara intelectualmente.
+Actualmente cursa 3º/4º Ingenieria informatica en la UMU, y dedica su tiempo al estudio de las Redes Neuronales y Sistemas 
+Inteligentes combinadas con algunas de las ramas de investigación mas prometedoras como la Edición genética mediante proteinas (CRISPER, viricos..) y la Cuántica.
+\end{IEEEbiographynophoto}
+% insert where needed to balance the two columns on the last page with
+% biographies
+%\newpage
+
+
+% that's all folks
+\end{document}
+
+
