@@ -47,10 +47,8 @@ def plot_values(values_in1, values_in2, values_in3, name, line_else_bars=True, w
     plt.legend()
     plt.xlabel('CasosConsiderados * 2000')
     plt.ylabel('Segundos')
-    try:
-        f.savefig(str(name + ".pdf"),bbox_inches='tight')
-    except:
-        print("Error al crear el archivo pdf con los gráficos")
+    f.savefig(str(name + ".pdf"),bbox_inches='tight')
+
 
 # Código main:
 def main():   
@@ -66,12 +64,11 @@ def main():
     except:
         print("No se encuentra el archivo de Entrada")
         sys.exit(-1)
-        
-    slist = sorted(lista)
+       
     
-    #parsing fEntrada
+    #parsing fEntrada, check for incorrect values
     try:
-        for number in slist:
+        for number in lista:
             N = int(number)
             if not (0 <= N <= 99999):
                 raise ValueError()
@@ -79,32 +76,34 @@ def main():
         print("All values must be a int value between 0 and 99999")
         sys.exit(-1)
         
+    #inicializamos marcadores de tiempo
     timeOption1 = []
     timeOption2 = []
     timeOption3 = []
     
     #Creamos las soluciones
     for i in range(2000,200000,2000):
-        print("Iteracion {} :".format(i/2000))
-        
-        #Método 1
+        #Método 1, usando el metodo set de python
         t0_sol1 = time.time_ns()
-        sol1 = sorted(set(slist[0:i]))
+        sol1 = list(set(lista[0:i]))
         texec_sol1 = (time.time_ns()-t0_sol1)/1.0e9
         
         print("La opcion 1: set ha tardado {} segundos en ejecutarse.".format(texec_sol1))
+        print("Ha encontrado {} numeros diferentes.".format(len(sol1)))
         
-        #Método 2
+        #Método 2, usando diccionarios en python
+        aux = 0
         t0_sol2 = time.time_ns()
-        sol2 = list(set(slist[0:i]))
+        sol2 = list(dict.fromkeys(lista[0:i], 0))
         texec_sol2 = (time.time_ns()-t0_sol2)/1.0e9
         
         
-        print("La opcion 2: list ha tardado {} segundos en ejecutarse.".format(texec_sol2))
+        print("La opcion 2: diccionarios ha tardado {} segundos en ejecutarse.".format(texec_sol2))
+        print("Ha encontrado {} numeros diferentes.".format(len(sol2)))
         
+        #Método 3, definido en c y llamado a través del wrapper
         
-        #Método 3
-        listTarget = slist[0:i]
+        listTarget = lista[0:i]
         results = [int(i) for i in listTarget]
         sol3 = np.zeros_like(listTarget)
         t0_sol3 = time.time_ns()
@@ -113,8 +112,17 @@ def main():
         
         
         print("La opcion 3: metodo propio ha tardado {} segundos en ejecutarse.".format(texec_sol3))
+        print("Ha encontrado {} numeros diferentes.".format(len(sol3)))
         
-        #Guardamos los datos para esta iteracion
+        #Comprobamos que los 3 metodos den la misma solucion
+        try:
+            if not (len(sol1)==len(sol2)==len(sol3)):
+                 raise ValueError()
+        except:
+            print("Methods didnt count same number of elements")
+            sys.exit(-1)
+        
+        #Guardamos los datos para esta iteracion, para poder dibujarlos con matplotlib
         timeOption1.append(texec_sol1)
         timeOption2.append(texec_sol2)
         timeOption3.append(texec_sol3)
@@ -125,7 +133,7 @@ def main():
         file = open(name, "w")
         
     except:
-        print("Can't create outputList file")
+        print("Can't create file")
         sys.exit(-1)
 
     for num in sol1:

@@ -5,7 +5,7 @@
 
 int wrapper( float *vin, float *vout,  int size)
 {
-
+   
     int array[size];
     
     
@@ -26,7 +26,7 @@ int wrapper( float *vin, float *vout,  int size)
     
     
     //Metodo 1.0
-    /*    
+    /*
     for(int i = 0; i<size-1; i++)
     {
         for(int j = i+1; j< size; j++)
@@ -52,5 +52,7 @@ int wrapper( float *vin, float *vout,  int size)
     }
     realloc(vout, size * sizeof(*vout));
     */
+    
+    
     return 0;
 }

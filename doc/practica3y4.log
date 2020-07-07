@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.19)  19 MAY 2020 21:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.19)  19 MAY 2020 21:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -785,18 +785,6 @@ l.920     # Control de argumentos de línea
                                             de comandos:
 ? 
 
-Overfull \hbox (33.12602pt too wide) in paragraph at lines 920--921
-[][][][][][][][][][][][][][][][][][][][] 
- []
-
-LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <9.53561> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 922.
-
-Overfull \hbox (78.89738pt too wide) in paragraph at lines 922--923
-[][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
 ! Package inputenc Error: Invalid UTF-8 byte sequence.
 
 See the inputenc package documentation for explanation.
@@ -816,147 +804,107 @@ Type  H <return>  for immediate help.
 l.935     SIZE = 200000  # Tamaño 
                                    del array.
 ? 
+
+! Package inputenc Error: Invalid UTF-8 byte sequence.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.957 # Wrapper python para llamar a la función 
+                                                 implementada en C.
+? 
+
+! Package inputenc Error: Invalid UTF-8 byte "B3.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.957 # Wrapper python para llamar a la función 
+                                                 implementada en C.
+? 
+
+! Package inputenc Error: Invalid UTF-8 byte sequence.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.959     # Objeto correspondiente a la función 
+                                                 dentro de la biblioteca.
+? 
+
+! Package inputenc Error: Invalid UTF-8 byte "B3.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.959     # Objeto correspondiente a la función 
+                                                 dentro de la biblioteca.
+? 
+
+! Package inputenc Error: Invalid UTF-8 byte sequence.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.962     # Prototipo de la función:
+                                      dos arrays a floats, la longitud de
+? 
+
+! Package inputenc Error: Invalid UTF-8 byte "B3.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.962     # Prototipo de la función:
+                                      dos arrays a floats, la longitud de
+? 
+
+! Package inputenc Error: Invalid UTF-8 byte sequence.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.963 ...s arrays y el escalar de multiplicación.
+                                                   Observa que ctypes no
+? 
+
+! Package inputenc Error: Invalid UTF-8 byte "B3.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.963 ...s arrays y el escalar de multiplicación.
+                                                   Observa que ctypes no
+? 
+
+! Package inputenc Error: Invalid UTF-8 byte sequence.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.970     # Valor devuelto por la función 
+                                           (se puede eliminar, pues es el
+? 
+
+! Package inputenc Error: Invalid UTF-8 byte "B3.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.970     # Valor devuelto por la función 
+                                           (se puede eliminar, pues es el
+? 
 [4]
-
-! Package inputenc Error: Invalid UTF-8 byte sequence.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.957 # Wrapper python para llamar a la función 
-                                                 implementada en C.
-? 
-
-! Package inputenc Error: Invalid UTF-8 byte "B3.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.957 # Wrapper python para llamar a la función 
-                                                 implementada en C.
-? 
-
-Overfull \hbox (96.06165pt too wide) in paragraph at lines 957--958
-[][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-! Package inputenc Error: Invalid UTF-8 byte sequence.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.959     # Objeto correspondiente a la función 
-                                                 dentro de la biblioteca.
-? 
-
-! Package inputenc Error: Invalid UTF-8 byte "B3.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.959     # Objeto correspondiente a la función 
-                                                 dentro de la biblioteca.
-? 
-
-Overfull \hbox (130.39017pt too wide) in paragraph at lines 959--960
-[][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-! Package inputenc Error: Invalid UTF-8 byte sequence.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.962     # Prototipo de la función:
-                                      dos arrays a floats, la longitud de
-? 
-
-! Package inputenc Error: Invalid UTF-8 byte "B3.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.962     # Prototipo de la función:
-                                      dos arrays a floats, la longitud de
-? 
-
-Overfull \hbox (130.39017pt too wide) in paragraph at lines 962--963
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-! Package inputenc Error: Invalid UTF-8 byte sequence.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.963 ...s arrays y el escalar de multiplicación.
-                                                   Observa que ctypes no
-? 
-
-! Package inputenc Error: Invalid UTF-8 byte "B3.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.963 ...s arrays y el escalar de multiplicación.
-                                                   Observa que ctypes no
-? 
-
-Overfull \hbox (153.27585pt too wide) in paragraph at lines 963--964
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (153.27585pt too wide) in paragraph at lines 964--965
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (84.6188pt too wide) in paragraph at lines 966--967
-[][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (84.6188pt too wide) in paragraph at lines 967--968
-[][][][][][][][][][][][] 
- []
-
-
-! Package inputenc Error: Invalid UTF-8 byte sequence.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.970     # Valor devuelto por la función 
-                                           (se puede eliminar, pues es el
-? 
-
-! Package inputenc Error: Invalid UTF-8 byte "B3.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.970     # Valor devuelto por la función 
-                                           (se puede eliminar, pues es el
-? 
-
-Overfull \hbox (130.39017pt too wide) in paragraph at lines 970--971
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
 
 ! Package inputenc Error: Invalid UTF-8 byte sequence.
 
@@ -977,16 +925,6 @@ Type  H <return>  for immediate help.
 l.974 ... espera que los dos primeros parámetros 
                                                   sean
 ? 
-
-Overfull \hbox (136.11159pt too wide) in paragraph at lines 974--975
-[][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (164.71869pt too wide) in paragraph at lines 975--976
-[][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
 
 ! Package inputenc Error: Invalid UTF-8 byte sequence.
 
@@ -1032,26 +970,6 @@ l.976     # según el prototipo de la función,
 
 ? 
 
-Overfull \hbox (164.71869pt too wide) in paragraph at lines 976--977
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (158.99727pt too wide) in paragraph at lines 977--978
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (170.44011pt too wide) in paragraph at lines 978--979
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (181.88295pt too wide) in paragraph at lines 979--980
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
 ! Package inputenc Error: Invalid UTF-8 byte sequence.
 
 See the inputenc package documentation for explanation.
@@ -1072,11 +990,6 @@ l.980 ...acemos lo mismo con el primer parámetro
                                                   que se le pasa
 ? 
 
-Overfull \hbox (170.44011pt too wide) in paragraph at lines 980--981
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
 ! Package inputenc Error: Invalid UTF-8 byte sequence.
 
 See the inputenc package documentation for explanation.
@@ -1099,11 +1012,6 @@ l.981     # a la función,
 
 ? 
 
-Overfull \hbox (164.71869pt too wide) in paragraph at lines 981--982
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
 ! Package inputenc Error: Invalid UTF-8 byte sequence.
 
 See the inputenc package documentation for explanation.
@@ -1123,16 +1031,6 @@ Type  H <return>  for immediate help.
 l.986     # Llamada a la función 
                                   de la biblioteca compartida.
 ? 
-
-Overfull \hbox (67.45454pt too wide) in paragraph at lines 986--987
-[][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (158.99727pt too wide) in paragraph at lines 989--990
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
 
 ! Package inputenc Error: Invalid UTF-8 byte sequence.
 
@@ -1205,16 +1103,6 @@ Type  H <return>  for immediate help.
 l.990 ...lver directamente «salida», pero sería
                                                   
 ? 
-
-Overfull \hbox (170.44011pt too wide) in paragraph at lines 990--991
-[][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (147.55443pt too wide) in paragraph at lines 991--992
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
 
 ! Package inputenc Error: Invalid UTF-8 byte sequence.
 
@@ -1276,11 +1164,6 @@ l.992 ...rden «print(salida)» no nos mostraría
                                                   su contenido sino
 ? 
 
-Overfull \hbox (158.99727pt too wide) in paragraph at lines 992--993
-[][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
 ! Package inputenc Error: Invalid UTF-8 byte sequence.
 
 See the inputenc package documentation for explanation.
@@ -1300,11 +1183,6 @@ Type  H <return>  for immediate help.
 l.993     # su tipo. Queda más 
                                 "elegante" devolver algo como la entrada.
 ? 
-
-Overfull \hbox (130.39017pt too wide) in paragraph at lines 993--994
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
 
 ! Package inputenc Error: Invalid UTF-8 byte sequence.
 
@@ -1326,147 +1204,58 @@ l.996 ...or de salida el resultado de la función.
                                                   
 ? 
 
-Overfull \hbox (136.11159pt too wide) in paragraph at lines 996--997
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (33.12602pt too wide) in paragraph at lines 1004--1005
-[][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (84.6188pt too wide) in paragraph at lines 1005--1006
-[][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (181.88295pt too wide) in paragraph at lines 1006--1007
-[][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (158.99727pt too wide) in paragraph at lines 1007--1008
-[][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (50.29028pt too wide) in paragraph at lines 1008--1010
-[][][][][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1016--1017
-[][][][][][][][][][][][][][][][][][][][][]
- []
-
-LaTeX Font Info:    Font shape `OML/ppl/m/n' in size <9.53561> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 1018.
-
-
-Overfull \hbox (4.51892pt too wide) in paragraph at lines 1024--1025
-[][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1051--1052
-[][][][][][][][][][][][][][][][][][][][][]
- []
-
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 1080--1081
-[][][][][][][][][][][][][][]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1081--1082
-[][][][][][][][][][][]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1082--1086
-[][][][][][][][][][]
- []
-
-
-Overfull \hbox (147.55443pt too wide) in paragraph at lines 1097--1098
-[][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (164.71869pt too wide) in paragraph at lines 1098--1100
-[][][][][][][] 
- []
-
-
-Overfull \hbox (27.4046pt too wide) in paragraph at lines 1101--1103
-[][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (107.50449pt too wide) in paragraph at lines 1104--1107
-[][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-! LaTeX Error: File `00' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1113 \includegraphics[width=\columnwidth]{00}
-                                               
-? 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1146--1148
+Underfull \hbox (badness 10000) in paragraph at lines 1139--1141
 [][]$\OT1/ppl/m/n/8.03 https : / / aulavirtual . um . es / access / content / a
 ttachment / 1918[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1146--1148
+Underfull \hbox (badness 10000) in paragraph at lines 1139--1141
 \OT1/ppl/m/n/8.03 G[]2019[]N[]N / Tareas / 9b880415-[]d8d5-[]4fd5-[]b503-[]a835
 9726218c /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1150--1152
+Underfull \hbox (badness 10000) in paragraph at lines 1143--1145
 [][]$\OT1/ppl/m/n/8.03 https : / / aulavirtual . um . es / access / content / a
 ttachment / 1918[]G[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1150--1152
+Underfull \hbox (badness 10000) in paragraph at lines 1143--1145
 \OT1/ppl/m/n/8.03 2019[]N[]N / Anuncios / 3dbcbb7a-[]fbc5-[]4cbc-[]ba5a-[]399d1
 1da60ab /
  []
 
-
-Package caption Warning: Unused \captionsetup[figure] on input line 491.
-See the caption package documentation for explanation.
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1175.
-[6pdfTeX warning (ext4): destination with the same identifier (name{cite.IEEEho
+[5pdfTeX warning (ext4): destination with the same identifier (name{cite.IEEEho
 wto:kopka}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1175 \end{document}
-                     pdfTeX warning (ext4): destination with the same identifie
-r (name{cite.IEEEhowto:kopka}) has been already used, duplicate ignored
+l.1161 \end{IEEEbiographynophoto}
+                                 pdfTeX warning (ext4): destination with the sa
+me identifier (name{cite.IEEEhowto:kopka}) has been already used, duplicate ign
+ored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1175 \end{document}
-                     ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1175.
+l.1161 \end{IEEEbiographynophoto}
+                                 ]
+
+Package caption Warning: Unused \captionsetup[figure] on input line 491.
+See the caption package documentation for explanation.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1168.
+[6
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1168.
  (./practica3y4.aux
 LaTeX Info: Redefining \. on input line 25.
 LaTeX Info: Redefining \% on input line 25.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1175.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1175.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1168.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1168.
 
 
 
@@ -1475,8 +1264,8 @@ Package rerunfilecheck Warning: File `practica3y4.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `practica3y4.out':
-(rerunfilecheck)             Before: A4F0AED72556213A68308D258C8B7C11;2513
-(rerunfilecheck)             After:  EFFCAC0AD9A33FA4B90B2CE039C3BD11;2760.
+(rerunfilecheck)             Before: EFFCAC0AD9A33FA4B90B2CE039C3BD11;2760
+(rerunfilecheck)             After:  86BC260B4CBDE73BFFDBB06C39A1A90F;2648.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 2.49063pt have occurred.
@@ -1484,38 +1273,39 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1175.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1168.
  ) 
 Here is how much of TeX's memory you used:
- 11672 strings out of 483121
- 181699 string characters out of 5964354
- 712758 words of memory out of 5000000
- 26138 multiletter control sequences out of 15000+600000
- 583151 words of font info for 120 fonts, out of 8000000 for 9000
+ 11641 strings out of 483121
+ 181535 string characters out of 5964354
+ 739758 words of memory out of 5000000
+ 26123 multiletter control sequences out of 15000+600000
+ 581988 words of font info for 117 fonts, out of 8000000 for 9000
  43 hyphenation exceptions out of 8191
- 41i,8n,74p,585b,1876s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,8n,74p,585b,1902s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exi
 st, replaced by a fixed one
 
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
 , replaced by a fixed one
 
+pdfTeX warning (dest): name{subsubsection.2.3.8} has been referenced but does n
+ot exist, replaced by a fixed one
+
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvet
-ic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/urw/palatino/uplri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
-rw/zapfding/uzdr.pfb>
-Output written on practica3y4.pdf (6 pages, 167227 bytes).
+texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvet
+ic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/urw/palatino/uplri8a.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/urw/zapfding/uzdr.pfb>
+Output written on practica3y4.pdf (6 pages, 151397 bytes).
 PDF statistics:
- 605 PDF objects out of 1000 (max. 8388607)
- 579 compressed objects within 6 object streams
+ 606 PDF objects out of 1000 (max. 8388607)
+ 582 compressed objects within 6 object streams
  343 named destinations out of 1000 (max. 500000)
- 273 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 297 words of extra memory for PDF output out of 10000 (max. 10000000)
 
