@@ -1,58 +1,36 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "wrapper.h"
 
+#define MAX_NUMBER 99999
 
 int wrapper( float *vin, float *vout,  int size)
 {
-   
-    int array[size];
     
-    
+    int array[MAX_NUMBER];
+    memset(array,0,MAX_NUMBER*sizeof(int));
+
+    //Recorremos la entrada y mapeamos los valores que leemos (0 o 1)
     for(int i = 0; i<size; i++)
     {
         array[(int)vin[i]] = 1;
     }
+
     
-    int newsize=0;
-    for(int i=0;i<size; i++)
+    //Rellenamos la salida con los valores encontrados
+    float newsize=0;
+    float * aux;
+    //iteramos array y si encontramos un 1 es que para esa posicion (i) se encontro un valor
+    //que concuerda
+    for(int i=0;i<=MAX_NUMBER; i++)
     {
        if(array[i]==1){
-           vout[newsize] = i;
+           aux = &vout[(int)newsize];
+           aux[0] = i;
            newsize++;
         }
     }
-    realloc(vout, newsize * sizeof(*vout));
     
-    
-    //Metodo 1.0
-    /*
-    for(int i = 0; i<size-1; i++)
-    {
-        for(int j = i+1; j< size; j++)
-        {
-            if(vin[i] == vin[j])
-            {
-                for(int k = j; k<size-1; k++)
-                {
-                    float aux;
-                    aux = vin[k];
-                    vin[k] = vin[k+1];
-                    vin[k+1] = aux;
-                }
-                size--;
-                j--;
-            }
-        }
-    }
-    
-    for(int i=0;i<size;i++)
-    {
-        vout[i] = vin[i];
-    }
-    realloc(vout, size * sizeof(*vout));
-    */
-    
-    
-    return 0;
+    return newsize;
 }

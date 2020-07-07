@@ -43,19 +43,21 @@ def wrapper(vin, size):
     salida=(ctypes.c_float * size)()
     entrada =(ctypes.c_float * size)(*vin)
     # Llamada a la función de la biblioteca compartida.
-    funcwrapper(entrada, salida, size)
+    newSize = funcwrapper(entrada, salida, size)
+    print("Salimos de C a Python")
+
 
     # Vamos a devolver un vector. Para eso, hacemos una copia del vector de
     # entrada. Podríamos devolver directamente «salida», pero sería un objeto de
     # ctypes tal y como lo hemos definido, con lo que una simple orden
     # «print(salida)» no nos mostraría su contenido sino su tipo. Queda más
     # "elegante" devolver algo como la entrada.
-    vout=np.resize(vin.copy(), len(salida))
 
+    vout=np.resize(vin.copy(), newSize)
+   
     # Copiamos a dicho vector de salida el resultado de la función.
     for i in range(len(vout)):
       vout[i]=salida[i]
-
     # Devolvemos el vector de salida.
     return vout
 

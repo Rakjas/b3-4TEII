@@ -103,11 +103,11 @@ def main():
         
         #Método 3, definido en c y llamado a través del wrapper
         
-        listTarget = lista[0:i]
-        results = [int(i) for i in listTarget]
+        listTarget = lista[0:i].copy() 
+        listTarget = [int(i) for i in listTarget]
         sol3 = np.zeros_like(listTarget)
         t0_sol3 = time.time_ns()
-        sol3 = wrapper(results,i)
+        sol3 = wrapper(listTarget,i)
         texec_sol3 = (time.time_ns()-t0_sol3)/1.0e9
         
         
