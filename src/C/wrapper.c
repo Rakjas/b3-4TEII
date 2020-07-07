@@ -5,28 +5,28 @@
 
 #define MAX_NUMBER 99999
 
-int wrapper( float *vin, float *vout,  int size, int *array)
+int wrapper( int *vin, int *vout,  int size)
 {
     
-    //int array[MAX_NUMBER];
-    //memset(array,0,MAX_NUMBER*sizeof(int));
+    int array[MAX_NUMBER];
+    memset(array,0,MAX_NUMBER*sizeof(int));
 
     //Recorremos la entrada y mapeamos los valores que leemos (0 o 1)
     for(int i = 0; i<size; i++)
     {
-        array[(int)vin[i]] = 1;
+        array[vin[i]] = 1;
     }
 
     
     //Rellenamos la salida con los valores encontrados
-    float newsize=0;
-    float * aux;
+    int newsize=0;
+    int * aux;
     //iteramos array y si encontramos un 1 es que para esa posicion (i) se encontro un valor
-    //que concuerda
+    //que concuerda con el que escribimos e incrementamos newSize de la colleción
     for(int i=0;i<=MAX_NUMBER; i++)
     {
        if(array[i]==1){
-           aux = &vout[(int)newsize];
+           aux = &vout[newsize];
            aux[0] = i;
            newsize++;
         }

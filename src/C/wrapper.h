@@ -1,5 +1,5 @@
 
-int wrapper(float *vin,    // Vector de entrada
-            float *vout,         // Vector de salida
-            int size);     // Longitud de los vectores
+int wrapper(int *vin,    // Vector de entrada
+            int *vout,         // Vector de salida
+            int size);       // Longitud de los vectores
             

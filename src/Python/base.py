@@ -87,7 +87,7 @@ def main():
     for i in range(2000,200000,2000):
         #Método 1, usando el metodo set de python
         t0_sol1 = time.time_ns()
-        sol1 = list(set(lista[0:i]))
+        sol1 = set(lista[0:i])
         texec_sol1 = (time.time_ns()-t0_sol1)/1.0e9
         
         #Método 2, usando diccionarios en python
@@ -97,14 +97,17 @@ def main():
         texec_sol2 = (time.time_ns()-t0_sol2)/1.0e9
         
         #Método 3, definido en c y llamado a través del wrapper
-        arrayAux = (ctypes.c_int * MAX_NUMBER)(*np.zeros(MAX_NUMBER, dtype=int))
         listTarget = lista[0:i].copy() 
-        listTarget = [int(i) for i in listTarget]
-        sol3 = np.zeros_like(listTarget)
+        listInt = [int(i) for i in listTarget]
+
+        #creamos e inicializamos las estructuras de datos a utilizar durante la llamada en c
+        salida=(ctypes.c_int * i)()
+        entrada =(ctypes.c_int * i)(*listInt)
+
         t0_sol3 = time.time_ns()
-        sol3 = wrapper(listTarget,i, arrayAux)
+        sol3 = wrapper( i,entrada, salida)
         texec_sol3 = (time.time_ns()-t0_sol3)/1.0e9
-        
+
         #Comprobamos que los 3 metodos den la misma solucion
         try:
             if not (len(sol1)==len(sol2)==len(sol3)):
@@ -127,10 +130,10 @@ def main():
         print("Can't create file")
         sys.exit(-1)
 
-    for num in sol1:
+    for num in sol3:
         
         file.write(str(num))
-       
+        file.write("\n")
         
     # Guardamos los graficos en el pdf de salida marcado
     
