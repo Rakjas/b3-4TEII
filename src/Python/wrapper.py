@@ -17,15 +17,17 @@ PyInit_libmult.
 import ctypes, os
 import numpy as np
 
+MAX_NUMBER = 99999
+
 # Wrapper python para llamar a la función implementada en C.
-def wrapper(vin, size):
+def wrapper(vin, size, arrayAux):
     # Objeto correspondiente a la función dentro de la biblioteca.
     funcwrapper = LIBWRAPPER.wrapper
 
     # Prototipo de la función: dos arrays a floats, la longitud de los arrays y
     # el escalar de multiplicación. Observa que ctypes no define punteros a datos que
     # no sean c_char, c_wchar y c_void, por lo que hay que crearlos con POINTER. 
-    funcwrapper.argtypes = [ctypes.POINTER(ctypes.c_float), ctypes.POINTER(ctypes.c_float), ctypes.c_int]
+    funcwrapper.argtypes = [ctypes.POINTER(ctypes.c_float), ctypes.POINTER(ctypes.c_float), ctypes.c_int, ctypes.POINTER(ctypes.c_int)]
 
     # Valor devuelto por la función (se puede eliminar, pues es el
     # comportamiento por defecto).
@@ -39,12 +41,11 @@ def wrapper(vin, size):
     # c_float, con tantos elementos como tiene vin. Observa que hacemos lo mismo
     # con el primer parámetro que se le pasa a la función, si bien, en este
     # caso, los valores deben ser los del vector de entrada.
-
+    
     salida=(ctypes.c_float * size)()
     entrada =(ctypes.c_float * size)(*vin)
     # Llamada a la función de la biblioteca compartida.
-    newSize = funcwrapper(entrada, salida, size)
-    print("Salimos de C a Python")
+    newSize = funcwrapper(entrada, salida, size, arrayAux)
 
 
     # Vamos a devolver un vector. Para eso, hacemos una copia del vector de

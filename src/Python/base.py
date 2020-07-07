@@ -13,11 +13,13 @@ Práctica TEII - Bloque 4 - Código de la sesión 3 de prácticas
 
 import sys
 import time
+import ctypes
 import numpy as np
 import matplotlib.pyplot as plt
 from wrapper import wrapper 
 from matplotlib.backends.backend_pdf import PdfPages
 
+MAX_NUMBER = 99999
 
 # Función auxiliar: muestra la figura matplotlib pendiente y espera una pulsación de tecla:
 #@profile
@@ -32,18 +34,18 @@ def show_plot_and_wait_for_key():
 def plot_values(values_in1, values_in2, values_in3, name, line_else_bars=True, width=0.5):
     f = plt.figure()
     if line_else_bars == True:
-        plt.plot(values_in1, color = 'r', label="Method 1")
-        plt.plot(values_in2, color = 'g', label="Method 2") 
-        plt.plot(values_in3, color = 'b', label="Method 3") 
+        plt.plot(values_in1, color = 'r', label="Set")
+        plt.plot(values_in2, color = 'g', label="Diccionario") 
+        plt.plot(values_in3, color = 'b', label="Método implementado") 
     else:
         plt.bar(np.arange(len(values_in1)) - width, values_in1, width=width, color='r', 
-                label="Method 1")
+                label="Set")
         plt.bar(np.arange(len(values_in2)), values_in2, width=width, color='g', 
-                label="Method 2")
+                label="Diccionario")
         plt.bar(np.arange(len(values_in3)), values_in3, width=width, color='b', 
-                label="Method 3")
+                label="Método implementado")
 
-    plt.title('Comparative of time spend between the methods'.format(["bars", "lines"][line_else_bars]))
+    plt.title('Comparativa del tiempo consumido entre los distintos métodos'.format(["bars", "lines"][line_else_bars]))
     plt.legend()
     plt.xlabel('CasosConsiderados * 2000')
     plt.ylabel('Segundos')
@@ -88,38 +90,27 @@ def main():
         sol1 = list(set(lista[0:i]))
         texec_sol1 = (time.time_ns()-t0_sol1)/1.0e9
         
-        print("La opcion 1: set ha tardado {} segundos en ejecutarse.".format(texec_sol1))
-        print("Ha encontrado {} numeros diferentes.".format(len(sol1)))
-        
         #Método 2, usando diccionarios en python
         aux = 0
         t0_sol2 = time.time_ns()
         sol2 = list(dict.fromkeys(lista[0:i], 0))
         texec_sol2 = (time.time_ns()-t0_sol2)/1.0e9
         
-        
-        print("La opcion 2: diccionarios ha tardado {} segundos en ejecutarse.".format(texec_sol2))
-        print("Ha encontrado {} numeros diferentes.".format(len(sol2)))
-        
         #Método 3, definido en c y llamado a través del wrapper
-        
+        arrayAux = (ctypes.c_int * MAX_NUMBER)(*np.zeros(MAX_NUMBER, dtype=int))
         listTarget = lista[0:i].copy() 
         listTarget = [int(i) for i in listTarget]
         sol3 = np.zeros_like(listTarget)
         t0_sol3 = time.time_ns()
-        sol3 = wrapper(listTarget,i)
+        sol3 = wrapper(listTarget,i, arrayAux)
         texec_sol3 = (time.time_ns()-t0_sol3)/1.0e9
-        
-        
-        print("La opcion 3: metodo propio ha tardado {} segundos en ejecutarse.".format(texec_sol3))
-        print("Ha encontrado {} numeros diferentes.".format(len(sol3)))
         
         #Comprobamos que los 3 metodos den la misma solucion
         try:
             if not (len(sol1)==len(sol2)==len(sol3)):
                  raise ValueError()
         except:
-            print("Methods didnt count same number of elements")
+            print("Los métodos difieren en el resultado")
             sys.exit(-1)
         
         #Guardamos los datos para esta iteracion, para poder dibujarlos con matplotlib
@@ -142,8 +133,6 @@ def main():
        
         
     # Guardamos los graficos en el pdf de salida marcado
-    
-    print("Comenzamos el plot de las comparativas")
     
     plot_values(timeOption1, timeOption2, timeOption3, sys.argv[3])
     

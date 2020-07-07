@@ -5,11 +5,11 @@
 
 #define MAX_NUMBER 99999
 
-int wrapper( float *vin, float *vout,  int size)
+int wrapper( float *vin, float *vout,  int size, int *array)
 {
     
-    int array[MAX_NUMBER];
-    memset(array,0,MAX_NUMBER*sizeof(int));
+    //int array[MAX_NUMBER];
+    //memset(array,0,MAX_NUMBER*sizeof(int));
 
     //Recorremos la entrada y mapeamos los valores que leemos (0 o 1)
     for(int i = 0; i<size; i++)
